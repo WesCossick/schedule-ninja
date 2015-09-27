@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">Schedule Ninja</a>
+        <a class="navbar-brand" href="/"><img src="/assets/logo-small.png"></img></a>
     </div>
     
     <!-- Top Menu Items -->
