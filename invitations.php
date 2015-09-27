@@ -49,6 +49,11 @@
                 </div>
                 
                 <div class="row">
+                    <div class="well">
+                        <h3>Send invitation</h3>
+                        This is a test
+                    </div>
+                    
                     <?php
                     $count = 0;
                     foreach(meeting_invitations($_SESSION['email']) as $meeting_invitation)
