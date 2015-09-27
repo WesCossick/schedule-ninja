@@ -173,7 +173,7 @@
                                 <div class="bottom_half">
                                     <table>
                                         <tr>
-                                            <td class="approve_<?php echo $meeting_request['type']; ?>" data-senderemail="<?php echo $meeting_request['sender_email']; ?>" data-useremail="<?php echo $_SESSION['email']; ?>" data-subject="<?php echo $meeting_request['subject']; ?>" data-id="<?php echo $_SESSION['meeting_request_id']; ?>">
+                                            <td class="approve_<?php echo $meeting_request['type']; ?>" data-senderemail="<?php echo $meeting_request['sender_email']; ?>" data-useremail="<?php echo $_SESSION['email']; ?>" data-subject="<?php echo $meeting_request['subject']; ?>" data-id="<?php echo $meeting_request['meeting_request_id']; ?>">
                                                 <i class="fa fa-check"></i>
                                                 
                                                 <?php if($meeting_request['type'] == 'direct') { ?>
