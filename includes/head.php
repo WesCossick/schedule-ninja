@@ -4,6 +4,9 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="/favicon.png" />
+
 <!-- Bootstrap Core CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
