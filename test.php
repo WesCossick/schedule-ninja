@@ -8,12 +8,6 @@ for ($i = 0; $i < 10; $i++) {
     $date_received = date("Y-m-d H:i:s", $int);
     $recipient = $i % 2 == 0 ? 'grilled.moose@gmail.com' : 'htx@samueltaylor.org';
     $sender_name = '';
-    $characters = 'abcdefghijklmnopqrstuvwxyz';
-    $charactersLength = strlen($characters);
-    for ($j = 0; $j < 9; $j++) {
-        $sender_name .= $characters[rand(0, $charactersLength - 1)];
-    }
-                            }
     $sender_email = "$sender_name@samueltaylor.org";
 
     $constraints_after = $i % 4 == 0 ? NULL : date("Y-m-d H:i:s", $int);
