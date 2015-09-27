@@ -52,7 +52,8 @@ function send_email($to_address, $subject, $text, $hmtl)
         setText($text)->
         setHtml($html);
     
-    $sendgrid->send($email);
+    $blacky = $sendgrid->send($email);
+	print_r($blacky);
 }
 
 function get_name_of_user($from_address)
