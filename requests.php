@@ -256,9 +256,11 @@
                 
                 for(var i = 0; i < data.length; i++)
                 {
-                    html += data[i].start;
+                    var start = moment(data[i].start);
+                    var end = moment(data[i].end);
+                    html += start.format("ddd, hA");
                     html += " ";
-                    html += data[i].end;
+                    html += end.format("ddd, hA");
                     html += "<br>";
                 }
                 
