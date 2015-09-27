@@ -1,6 +1,6 @@
 <?php
 require('config/main.php');
-require_once 'php-libraries/class.contextio.php';
+require_once 'php-libraries/contextio/class.contextio.php';
 
 $contextIO = new ContextIO(getenv('CONTEXTIO_KEY'), getenv('CONTEXTIO_SECRET'));
 $accountId = null;
