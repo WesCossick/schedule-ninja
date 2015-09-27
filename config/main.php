@@ -36,6 +36,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/includes/functions.php');
 
 
 // Check if they've logged in
+print_r($_SESSION);
 if($_SESSION['email'] == '')
 {
     // Attempt to log in
