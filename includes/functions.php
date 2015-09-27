@@ -117,4 +117,20 @@ function meeting_invitations($email)
     return $rows;
 }
 
+function save_refresh_token($email, $refresh_token)
+{
+    global $PDO;
+    
+    $query = 'UPDATE users SET refresh_token =: refresh_token WHERE email = :email';
+    
+    $insert_token = $PDO->prepare($query);
+    
+    $params = array(
+       'refresh_token' => $refresh_token,
+       'email' => $email,
+   );
+    
+    $insert_token->execute($params);
+}
+
 ?>
