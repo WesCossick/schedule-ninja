@@ -69,7 +69,7 @@ foreach ($r->getData() as $message) {
         }
     }
 
-    print '\t';
+    print "\t";
     if (is_meeting_request($subject, $main_body)) {
         print 'YES '.$subject.PHP_EOL;
         create_meeting_request('email', $date_received, $recipient, 
