@@ -15,22 +15,33 @@ function meeting_requests()
     return $row;
 }
 
-function count_meeting_requests()
+// int
+function count_meeting_requests($recipient)
+{
+   $query = 'SELECT COUNT(*) FROM meeting_requests WHERE recipient = :recipient'; 
+   $stmt = $PDO->prepare($query);
+   $params = array(
+       'recipient' => $recipient,
+   );
+   $stmt->execute($params);
+   $row = $statement->fetch();
+
+   return $row;
+}
+
+function get_time_saved($recipient)
+{
+    return 5 * count_meeting_requests();
+}
+
+// int
+function count_meetings_scheduled($recipient)
 {
     
 }
 
-function get_time_saved()
-{
-    
-}
-
-function count_meetings_scheduled()
-{
-    
-}
-
-function count_people_interacted_with()
+// int
+function count_people_interacted_with($recipient)
 {
     
 }
