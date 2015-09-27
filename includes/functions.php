@@ -3,7 +3,7 @@ function meeting_requests($user_recipient)
 {
     global $PDO;
     // Do something
-    $query = "SELECT * FROM meeting_requests WHERE recipient = :user_recipient AND confirmed = 0";
+    $query = "SELECT * FROM meeting_requests WHERE recipient = :user_recipient";
     $statement = $PDO->prepare($query);
     $params = array(
         'user_recipient' => $user_recipient,
