@@ -40,7 +40,7 @@
             </li>
             
             <li <?php if($_SERVER['REQUEST_URI'] == '/invitations') echo 'class="active"'; ?>>
-                <a href="/requests"><i class="fa fa-fw fa-arrow-circle-right"></i> Invitations</a>
+                <a href="/invitations"><i class="fa fa-fw fa-arrow-circle-right"></i> Invitations</a>
             </li>
         </ul>
     </div>
