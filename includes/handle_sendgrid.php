@@ -4,6 +4,18 @@ require $_SERVER['DOCUMENT_ROOT'].'/php-libraries/sendgrid-php/sendgrid-php.php'
 $SENDGRID_USER = getenv($SENDGRID_USER);
 $SENDGRID_PASS = getenv($SENDGRID_PASS);
 
+function reject_meeting($to_address, $from_address, $original_subject)
+{
+    $name = get_name_of_user($from_address);
+    $subject = 'RE:'.$original_subject;
+    $text = 'Hello,\nI am '.$name.'\'s personal Schedule Ninja! '
+            .$name.' got your meeting request, but unfortunately cannot meet with you. 
+			We apologize for any inconvenience!\nThanks!\nSchedule Ninja';
+    $html = '<strong>'.$text.'</strong>';
+    
+    send_email($to_address, $subject, $text, $html);
+}
+
 function send_meeting($to_address, $from_address)
 {
     $name = get_name_of_user($from_address);
