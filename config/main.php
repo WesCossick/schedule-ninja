@@ -1,4 +1,9 @@
 <?php
+// Show all errors
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+
 // Connect to database
 $database_username = getenv('MYSQL_USER');
 $database_password = getenv('MYSQL_PASS');
