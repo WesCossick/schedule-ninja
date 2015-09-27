@@ -42,26 +42,26 @@ function count_meeting_requests($recipient)
    );
    $stmt->execute($params);
 
-   return $stmt->fetchColumn();
+   return intval($stmt->fetchColumn());
 }
 
 function get_time_saved($recipient)
 {
     global $PDO;
-    return 5 * count_meeting_requests();
+    return intval(5 * count_meeting_requests($recipient));
 }
 
 // int
 function count_meetings_scheduled($recipient)
 {
     global $PDO;
-    
+    return intval(0);
 }
 
 // int
 function count_people_interacted_with($recipient)
 {
     global $PDO;
-    
+    return intval(0);
 }
 ?>
