@@ -22,6 +22,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $curl_params);
 curl_setopt($ch, CURLOPT_TIMEOUT, 10);
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 curl_setopt($ch, CURLOPT_AUTOREFERER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));
 
 if(($response = curl_exec($ch)) === false)
 {
