@@ -18,7 +18,7 @@ function meeting_requests($user_recipient)
 // int
 function count_meeting_requests($recipient)
 {
-    global $PDO;
+   global $PDO;
    $query = 'SELECT COUNT(*) FROM meeting_requests WHERE recipient = :recipient'; 
    $stmt = $PDO->prepare($query);
    $params = array(
