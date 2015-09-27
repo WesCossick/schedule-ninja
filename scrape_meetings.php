@@ -46,6 +46,8 @@ foreach ($r->getData() as $account) {
     }
 }
 
+$contextIO->syncSource($accountId);
+
 $r = $contextIO->listMessages($accountId, array('include_body' => true));
 foreach ($r->getData() as $message) {
     $msg_id = $message['message_id'];
