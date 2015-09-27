@@ -37,10 +37,12 @@ curl_close($ch);
 // Return JSON response
 $json = json_decode($response, true);
 
-print_r($response);
-print_r($json);
+
+// Store token
+$_SESSION['access_token'] = $json['access_token'];
+save_refresh_token($_SESSION['email'], $json['refresh_token']);
 
 
 // Redirect
-//header('Location: /');
+header('Location: /');
 ?>
