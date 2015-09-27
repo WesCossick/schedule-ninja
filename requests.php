@@ -1,9 +1,4 @@
-<?php
-// Show all errors
-echo 'test';
-error_reporting(E_ALL ^ E_NOTICE);
-ini_set('display_errors', 1);
-require($_SERVER['DOCUMENT_ROOT'].'/config/main.php'); ?>
+<?php require($_SERVER['DOCUMENT_ROOT'].'/config/main.php'); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -85,11 +80,11 @@ require($_SERVER['DOCUMENT_ROOT'].'/config/main.php'); ?>
                 </div>
                 
                 <div class="row">
-                    <?php for(meeting_requests($_SESSION['email']) as $meeting_request){ ?>
+                    <?php //for(meeting_requests($_SESSION['email']) as $meeting_request){ ?>
                         TODO
                         
                         <div class="clearfix visible-lg-block"></div>
-                    <?php } ?>
+                    <?php //} ?>
                 </div>
             </div>
         </div>
