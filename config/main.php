@@ -46,12 +46,15 @@ if($_SESSION['email'] == '')
         'password' => md5($_POST['password']),
     );
     $statement->execute($params);
+    $row = $statement->fetch();
     
     
     // Save login if successful; otherwise, show login page
-    if($statement->fetchColumn() == 1)
+    if($statement->rowCount() == 1)
     {
         $_SESSION['email'] = $_POST['email'];
+        $_SESSION['first_name'] = $row['first_name'];
+        $_SESSION['last_name'] = $row['last_name'];
     }
     else
     {
