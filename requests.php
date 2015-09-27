@@ -173,7 +173,7 @@
                                 <div class="bottom_half">
                                     <table>
                                         <tr>
-                                            <td class="approve_<?php echo $meeting_request['type']; ?>" data-senderemail="<?php echo $meeting_request['sender_email']; ?>" data-useremail="<?php echo $_SESSION['email']; ?>" data-subject="<?php echo $meeting_request['subject']; ?>">
+                                            <td class="approve_<?php echo $meeting_request['type']; ?>" data-senderemail="<?php echo $meeting_request['sender_email']; ?>" data-useremail="<?php echo $_SESSION['email']; ?>" data-subject="<?php echo $meeting_request['subject']; ?>" data-id="<?php echo $_SESSION['meeting_request_id']; ?>">
                                                 <i class="fa fa-check"></i>
                                                 
                                                 <?php if($meeting_request['type'] == 'direct') { ?>
@@ -228,6 +228,41 @@
                     "pointer-events": "none",
                 });
                 console.log(msg);
+            });
+        });
+        
+        $(".approve_direct").click(function(){
+            var sender_email = $(this).data("senderemail");
+            var user_email = $(this).data("useremail");
+            var id = $(this).data("id");
+            var $box = $(this).closest(".email_box");
+            
+            $.ajax({
+                method: "POST",
+                url: "/approve_direct",
+                data: {
+                    sender_email: sender_email,
+                    user_email: user_email,
+                    id: id,
+                }
+            }).done(function(msg){
+                $box.fadeTo(250, .3);
+                $box.css({
+                    "pointer-events": "none",
+                });
+                
+                var data = JSON.parse(msg);
+                var html = "";
+                
+                for(var i = 0; i < data.length; i++)
+                {
+                    html += data[i].start;
+                    html += " ";
+                    html += data[i].end;
+                    html += "<br>";
+                }
+                
+                $(".container-fluid").prepend("<div class='alert alert-success'><strong>Great!</strong> here are some times you are free:<br>"+html+"</div>");
             });
         });
         
