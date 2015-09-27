@@ -27,6 +27,7 @@ function suggested_times($email)
                     'start' => $unix,
                     'friendly_start' => date('Y-m-d H:i:s e', $unix),
                     'end' => $unix+$hours*3600,
+                    'friendly_end' => date('Y-m-d H:i:s e', $unix+$hours*3600),
                 );
             }
             
