@@ -33,6 +33,8 @@ catch(PDOException $e)
 
 // Include the functions
 require($_SERVER['DOCUMENT_ROOT'].'/includes/functions.php');
+print_r($_COOKIE);
+print_r($_SESSION);
 
 
 // Check if they've logged in
