@@ -110,13 +110,14 @@ function get_all_events($email)
         
         
         // Loop over events
-        foreach($json2['items'] as $item2)
-        {
-            $events[] = array(
-                'start' => strtotime($item2['start']['dateTime']),
-                'end' => strtotime($item2['end']['dateTime']),
-            );
-        }
+        if(is_array($json2['items']))
+            foreach($json2['items'] as $item2)
+            {
+                $events[] = array(
+                    'start' => strtotime($item2['start']['dateTime']),
+                    'end' => strtotime($item2['end']['dateTime']),
+                );
+            }
     }
     
     
