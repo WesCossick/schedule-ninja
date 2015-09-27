@@ -36,7 +36,6 @@ require($_SERVER['DOCUMENT_ROOT'].'/includes/functions.php');
 
 
 // Check if they've logged in
-print_r($_SESSION);
 if($_SESSION['email'] == '')
 {
     // Attempt to log in
@@ -51,7 +50,6 @@ if($_SESSION['email'] == '')
     
     
     // Save login if successful; otherwise, show login page
-    echo $statement->rowCount();
     if($statement->rowCount() == 1)
     {
         $_SESSION['email'] = $_POST['email'];
