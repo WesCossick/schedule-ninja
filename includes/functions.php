@@ -168,4 +168,14 @@ function days_gone_by($email)
     }
     return $requests;
 }
+
+function confirm_request($request_id) {
+    global $PDO;
+    $query = 'UPDATE meeting_requests SET confirmed = 1 WHERE meeting_request_id = :request_id';
+    $stmt = $PDO->prepare($query);
+    $params = array(
+            'request_id' => $request_id,
+        );
+    $stmt->execute($params);
+}
 ?>
