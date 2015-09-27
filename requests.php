@@ -144,7 +144,7 @@
                             </div>
                         </div>
                         
-                        <?php if($count % 2 = 0) { ?>
+                        <?php if($count % 2 == 0) { ?>
                             <div class="clearfix visible-lg-block"></div>
                         <?php } ?>
                     <?php } ?>
