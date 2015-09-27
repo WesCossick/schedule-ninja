@@ -1,4 +1,5 @@
 <?php
+print_r($_SERVER);
 // Connect to database
 $database_username = getenv('MYSQL_USER');
 $database_password = getenv('MYSQL_PASS');
