@@ -9,7 +9,7 @@ var_dump($free_time);
 print '<br><br>Events:<br>';
 var_dump($events);
 
-$out = suggested_times('grilled.moose@gmail.com');
+$out = suggested_times(['grilled.moose@gmail.com']);
 print_r($out);
 
 ?>
