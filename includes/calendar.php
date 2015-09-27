@@ -36,12 +36,17 @@ function suggested_times($email)
     return $suggestions;
 }
 
+function time_cmp($a, $b) {
+    return $b['start'] - $a['start'];
+}
+
 function free_time($email)
 {
     // Globals
     global $PDO;
     
     $events = get_all_events($email);
+    usort($events, 'time_cmp');
 
     $start = time();
     $end = strtotime('+7 days');
