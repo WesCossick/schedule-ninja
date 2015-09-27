@@ -14,6 +14,7 @@ foreach ($r->getData() as $account) {
 
 $r = $contextIO->listMessages($accountId, array('include_body' => true));
 foreach ($r->getData() as $message) {
+    var_dump($message);
     $msg_id = $message['message_id'];
     $subject = $message['subject'];
     $date_received = date("Y-m-d H:i:s", $message['date_received']);
