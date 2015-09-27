@@ -1,3 +1,5 @@
 # Allow PHP files to be run without the extension in the URL
 RewriteEngine on
-RewriteRule ^([^.?]+)$ %{REQUEST_URI}.php [L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule (.*) $1.php [L]
