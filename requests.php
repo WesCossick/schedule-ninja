@@ -252,17 +252,20 @@
                 });
                 
                 var data = JSON.parse(msg);
-                var html = "";
+                var html = "<ul>";
                 
-                for(var i = 0; i < data.length; i++)
+                for(var i = 0; i < data.length && i < 3; i++)
                 {
                     var start = moment.unix(data[i].start);
                     var end = moment.unix(data[i].end);
+                    html += "<li>";
                     html += start.format("ddd, hA");
                     html += " ";
                     html += end.format("ddd, hA");
+                    html += "</li>";
                     html += "<br>";
                 }
+                var html += "</ul>";
                 
                 $(".container-fluid").prepend("<div class='alert alert-success'><strong>Great!</strong> here are some times you are free:<br>"+html+"</div>");
             });
