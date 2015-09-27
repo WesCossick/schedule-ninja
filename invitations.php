@@ -96,7 +96,7 @@ if($_POST['email1'] != '' && $_POST['name1'] != '' && $_POST['hours'] != '')
                                 
                                 <div class="form-group">
                                     <label for="name1">Approximate length in hours</label>
-                                    <input type="number" class="form-control" name="hours" id="hours" value="1" min=".25" max="6" step=".25" placeholder="1">
+                                    <input type="number" class="form-control" name="hours" id="hours" value="1" min=".5" max="6" step=".5" placeholder="1">
                                 </div>
                                 
                                 <button type="submit" class="btn btn-primary">Submit</button>
