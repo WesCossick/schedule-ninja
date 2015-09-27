@@ -16,7 +16,13 @@ function meeting_requests($user_recipient)
 }
 
 function is_meeting_request($subject, $main_body) {
-    return true;
+    $messages = array('meeting request', 'let\'s meet', 'meeting', 'wanna netflix and chill');
+    for ($messages as $msg) {
+        if (strpos($msg, $subject) !== false) {
+            return true;
+        }
+    }
+    return false;
 }
 
 function create_meeting_request($type, $date_received, $recipient,
