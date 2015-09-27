@@ -19,10 +19,7 @@ function is_meeting_request($subject, $main_body) {
     $messages = array('meeting request', 'let\'s meet', 'meeting', 'wanna netflix and chill');
     foreach ($messages as $msg) {
         if (stripos($subject, $msg) !== false) {
-            print $msg . ' YES in ' . $subject . PHP_EOL;
             return true;
-        } else {
-            print $msg . ' not in ' . $subject . PHP_EOL;
         }
     }
     return false;
@@ -30,15 +27,15 @@ function is_meeting_request($subject, $main_body) {
 
 function create_meeting_request($type, $date_received, $recipient,
     $sender_email, $sender_name, $constraints_after=null, $constraints_before=null,
-    $requested_date=null, $hours=0, $subject) {
+    $requested_date=null, $hours=0, $subject, $message_id) {
 
     global $PDO;
     $query = 'INSERT INTO `meeting_requests` (`type`,
         `date_received`, `recipient`, `sender_email`, `sender_name`,
-        `constraints_after`, `constraints_before`, `requested_date`, `hours`, `subject`) VALUES
+        `constraints_after`, `constraints_before`, `requested_date`, `hours`, `subject`, `message_id`) VALUES
         (:type, :date_received, :recipient, :sender_email,
         :sender_name, :constraints_after, :constraints_before,
-        :requested_date, :hours, :subject);';
+        :requested_date, :hours, :subject, :message_id);';
     try {
         $PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $PDO->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
@@ -55,6 +52,7 @@ function create_meeting_request($type, $date_received, $recipient,
             'requested_date' => $requested_date,
             'hours' => $hours,
             'subject' => $subject,
+            'message_id' => $message_id,
         );
         $stmt->execute($params);
     }

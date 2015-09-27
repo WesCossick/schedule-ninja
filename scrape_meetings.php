@@ -39,7 +39,7 @@ foreach ($r->getData() as $message) {
         print 'is meeting request<br>';
         create_meeting_request('email', $date_received, $recipient, 
             $sender_email, $sender_name, $constraints_after, 
-            $constraints_before, $requested_date, $hours, $subject);
+            $constraints_before, $requested_date, $hours, $subject, $msg_id);
     } else {
         print 'is not meeting request<br>';
     }
