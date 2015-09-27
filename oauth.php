@@ -5,13 +5,12 @@ require($_SERVER['DOCUMENT_ROOT'].'/config/main.php');
 // Setup params
 $curl_params = array(
     'code' => $_GET['code'],
-    'redirect_uri' => 'https://getschedule.ninja/oauth',
-    'client_id' => '1063760492812-09qojd13nsodupbo0a9ki0oeg60fo4os.apps.googleusercontent.com',
+    'grant_type' => 'authorization_code',
     'client_secret' => 'bLdqH3OhmjVYsY5m4VFSa3Fs',
     'scope' => '',
-    'grant_type' => 'authorization_code',
+    'redirect_uri' => 'https://getschedule.ninja/oauth',
+    'client_id' => '1063760492812-09qojd13nsodupbo0a9ki0oeg60fo4os.apps.googleusercontent.com',
 );
-echo http_build_query($curl_params);
 
 
 // API call
@@ -20,7 +19,7 @@ $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, 'https://www.googleapis.com/oauth2/v3/token');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $curl_params);
+curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($curl_params));
 curl_setopt($ch, CURLOPT_TIMEOUT, 10);
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 curl_setopt($ch, CURLOPT_AUTOREFERER, true);
