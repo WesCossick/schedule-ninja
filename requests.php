@@ -80,20 +80,24 @@
                 </div>
                 
                 <div class="row">
-                    <?php foreach(meeting_requests($_SESSION['email']) as $meeting_request){ ?>
+                    <?php
+                    $count = 0;
+                    foreach(meeting_requests($_SESSION['email']) as $meeting_request)
+                    {
+                    ?>
                         <div class="col-xs-12 col-lg-6">
                             <div class="email_box">
                                 <div class="top_half">
                                     <h3><?php echo $meeting_request['sender_name']; ?> <small>Would like to meet
                                     
                                     <?php if(!is_null($meeting_request['constraints_after']) && !is_null($meeting_request['constraints_before'])) { ?>
-                                        between <?php echo $meeting_request['constraints_after']; ?> and <?php echo $meeting_request['constraints_before']; ?>
+                                        between <?php echo date('l', strtotime($meeting_request['constraints_after'])); ?> and <?php echo date('l', strtotime($meeting_request['constraints_before'])); ?>
                                     <?php } else if(!is_null($meeting_request['constraints_after'])) { ?>
-                                        after <?php echo $meeting_request['constraints_after']; ?>
+                                        after <?php echo date('l', strtotime($meeting_request['constraints_after'])); ?>
                                     <?php } else if(!is_null($meeting_request['constraints_before'])) { ?>
-                                        before <?php echo $meeting_request['constraints_before']; ?>
+                                        before <?php echo date('l', strtotime($meeting_request['constraints_before'])); ?>
                                     <?php } else if(!is_null($meeting_request['requested_date'])) { ?>
-                                        on <?php echo $meeting_request['requested_date']; ?>
+                                        on <?php echo date('l', strtotime($meeting_request['requested_date'])); ?>
                                     <?php } else { ?>
                                         soon
                                     <?php } ?>
@@ -147,7 +151,10 @@
                         <?php if($count % 2 == 0) { ?>
                             <div class="clearfix visible-lg-block"></div>
                         <?php } ?>
-                    <?php } ?>
+                    <?php
+                        $count++;
+                    }
+                    ?>
                 </div>
             </div>
         </div>
