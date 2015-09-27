@@ -54,24 +54,19 @@
                             <h3 style="margin-top:0;">Send invitation</h3>
                             <form method="post">
                                 <div class="form-group">
-                                    <label for="email">Recipient email(s)</label>
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="user@example.com">
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="user@example.com">
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="user@example.com">
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="user@example.com">
+                                    <label for="email1">Recipient email(s)</label>
+                                    <input type="email" class="form-control" name="email1" id="email1" placeholder="user@example.com">
+                                    <input type="email" class="form-control" name="email2" id="email2" placeholder="user@example.com">
+                                    <input type="email" class="form-control" name="email3" id="email3" placeholder="user@example.com">
+                                    <input type="email" class="form-control" name="email4" id="email4" placeholder="user@example.com">
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label for="email">Recipient name(s)</label>
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="user@example.com">
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="user@example.com">
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="user@example.com">
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="user@example.com">
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input type="password" class="form-control" name="password" id="password" placeholder="••••••••">
+                                    <label for="name1">Recipient name(s)</label>
+                                    <input type="text" class="form-control" name="name1" id="name1" placeholder="user@example.com">
+                                    <input type="text" class="form-control" name="name2" id="name2" placeholder="user@example.com">
+                                    <input type="text" class="form-control" name="name3" id="name3" placeholder="user@example.com">
+                                    <input type="text" class="form-control" name="name4" id="name4" placeholder="user@example.com">
                                 </div>
                                 
                                 <button type="submit" class="btn btn-primary">Submit</button>
