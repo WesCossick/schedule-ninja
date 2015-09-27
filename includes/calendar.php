@@ -1,8 +1,25 @@
 <?php
-function free_time()
+function free_time($events)
 {
     // Globals
     global $PDO;
+
+    $start = time();
+    $end = time() + 60 * 60 * 24 * 7;
+
+    $free = array();
+
+    $prev = $start;
+    foreach ($events as $event) {
+        if ($prev < $event['start']) {
+            $free[] = array('start' => $prev, 'end' => $event['start']);
+        }
+        $prev = $event['end'];
+    }
+    $last = end($free);
+    if ($last['end'] < $end) {
+        $free[] = array('start' => $last['end'], 'end' => $end);
+    }
 }
 
 function get_all_events($email)
@@ -122,7 +139,6 @@ function get_all_events($email)
     
     
     // Return
-    print_r($events);
     return $events;
 }
 ?>
