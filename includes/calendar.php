@@ -54,6 +54,7 @@ function get_all_events($email)
     // Get JSON and token
     $json = json_decode($response, true);
     $access_token = $json['access_token'];
+    print_r($json);
     
     
     // Setup params
