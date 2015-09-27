@@ -24,6 +24,7 @@ function create_meeting_request($type, $date_received, $recipient,
     $requested_date=null, $hours=0) {
 
     global $PDO;
+    echo 'good1';
     $query = "INSERT INTO meeting_requests SET hours = 1";
     /*
     $query = 'INSERT INTO `meeting_requests` (`type`,
@@ -34,6 +35,7 @@ function create_meeting_request($type, $date_received, $recipient,
         :requested_date, :hours);';
     */
     $stmt = $PDO->query($query);
+    echo 'good2';
 
     /*
     $stmt = $PDO->prepare($query);
