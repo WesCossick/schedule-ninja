@@ -1,5 +1,6 @@
 <?php
 // Show all errors
+echo 'test';
 error_reporting(E_ALL ^ E_NOTICE);
 ini_set('display_errors', 1);
 require($_SERVER['DOCUMENT_ROOT'].'/config/main.php'); ?>
