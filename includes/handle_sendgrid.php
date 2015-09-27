@@ -49,6 +49,7 @@ function approve_meeting($to_address, $from_address, $original_subject, $suggest
             PHP_EOL.'Schedule Ninja'.PHP_EOL;
     $html = $text;
     foreach ($links as $link) {
+        $text .= $link['text'].' -- '.$link["link"].PHP_EOL;
         $html .= '<a href="'.$link["link"].'">'.$link['text'].'</a><br>';
     }
     
