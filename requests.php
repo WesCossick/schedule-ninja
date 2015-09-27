@@ -128,8 +128,7 @@
                                                 echo 'five hours';
                                             else if($meeting_request['hours'] == 6)
                                                 echo 'six hours';
-                                            ?>
-                                            </strong>.
+                                            ?></strong>.
                                         <?php } ?>
                                         
                                         <strong>Bob Smith</strong> has also been invited.
