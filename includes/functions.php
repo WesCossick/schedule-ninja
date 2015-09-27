@@ -24,13 +24,18 @@ function create_meeting_request($type, $date_received, $recipient,
     $requested_date=null, $hours=0) {
 
     global $PDO;
+    $query = "INSERT INTO meeting_requests SET hours = 1";
+    /*
     $query = 'INSERT INTO `meeting_requests` (`type`,
         `date_received`, `recipient`, `sender_email`, `sender_name`,
         `constraints_after`, `constraints_before`, `requested_date`, `hours`) VALUES
         (:type, :date_received, :recipient, :sender_email,
         :sender_name, :constraints_after, :constraints_before,
         :requested_date, :hours);';
+    */
+    $stmt = $PDO->query($query);
 
+    /*
     $stmt = $PDO->prepare($query);
     $params = array(
         'type' => $type,
@@ -44,6 +49,7 @@ function create_meeting_request($type, $date_received, $recipient,
         'hours' => $hours,
     );
     return $stmt->execute($params);
+    */
 }
 
 // int
