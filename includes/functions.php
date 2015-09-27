@@ -16,10 +16,10 @@ function meeting_requests($user_recipient)
 }
 
 function create_meeting_request($type, $date_received, $recipient, 
-    global $PDO;
     $sender_email, $sender_name, $constraints_after, $constraints_before, 
     $requested_date) {
 
+    global $PDO;
     $query = 'INSERT INTO `meeting_requests` (`meeting_request_id`, `type`,'.  
         '`date_received`, `recipient`, `sender_email`, `sender_name`, '.
         '`constraints_after`, `constraints_before`, `requested_date`) VALUES '.
