@@ -44,6 +44,9 @@ function send_email($to_address, $subject, $text, $hmtl)
 {
     global $SENDGRID_USER, $SENDGRID_PASS;
     
+	print_r($SENDGRID_USER);
+	print_r($SENDGRID_PASS);
+	
     $sendgrid = new SendGrid($SENDGRID_USER, $SENDGRID_PASS);
     $email    = new SendGrid\Email();
     $email->addTo($to_address)->
