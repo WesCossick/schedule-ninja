@@ -165,7 +165,7 @@
                                                 <?php } ?>
                                             </td>
                                             
-                                            <td>
+                                            <td class="deny_<?php echo $meeting_request['type']; ?>" data-senderemail="<?php echo $meeting_request['sender_email']; ?>" data-useremail="<?php echo $_SESSION['email']; ?>" data-subject="<?php echo $meeting_request['subject']; ?>">
                                                 <i class="fa fa-times"></i> Deny
                                             </td>
                                         </tr>
@@ -199,6 +199,29 @@
             $.ajax({
                 method: "POST",
                 url: "/approve_email",
+                data: {
+                    sender_email: sender_email,
+                    user_email: user_email,
+                    subject: subject,
+                }
+            }).done(function(msg){
+                $box.fadeTo(250, .3);
+                $box.css({
+                    "pointer-events": "none",
+                });
+                console.log(msg);
+            });
+        });
+        
+        $(".deny_email").click(function(){
+            var sender_email = $(this).data("senderemail");
+            var user_email = $(this).data("useremail");
+            var subject = $(this).data("subject");
+            var $box = $(this).closest(".email_box");
+            
+            $.ajax({
+                method: "POST",
+                url: "/deny_email",
                 data: {
                     sender_email: sender_email,
                     user_email: user_email,
