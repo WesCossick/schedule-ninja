@@ -146,6 +146,7 @@ function days_gone_by($recipient)
         
         print_r($past);
         print_r($current);
+        print_r($email);
         
         $current_date = date('l', strtotime('-'.$i.'days'));
         $query = 'SELECT COUNT(*) FROM meeting_requests WHERE recipient = :email AND date_received >= :past AND date_received <= :current';
