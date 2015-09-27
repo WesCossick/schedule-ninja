@@ -13,6 +13,10 @@
 
         <div id="page-wrapper">
             <div class="container-fluid">
+                <?php
+                if($_GET['success'] != ''){ echo '<div class="alert alert-success">'.$_GET['success'].'</div>'; }
+                ?>
+                
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
