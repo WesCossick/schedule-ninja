@@ -36,6 +36,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/includes/functions.php');
 
 
 // Check if they've logged in
+echo 'before';
 if($_SESSION['email'] == '')
 {
     // Attempt to log in
@@ -59,4 +60,5 @@ if($_SESSION['email'] == '')
         exit;
     }
 }
+echo 'good';
 ?>
