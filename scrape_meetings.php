@@ -12,4 +12,9 @@ foreach ($r->getData() as $account) {
 	}
 }
 
+$r = $contextIO->listMessages($accountId, $args);
+foreach ($r->getData() as $message) {
+    var_dump($message);
+}
+
 ?>
