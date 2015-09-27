@@ -37,7 +37,7 @@ function suggested_times($email)
 }
 
 function time_cmp($a, $b) {
-    return $b['start'] - $a['start'];
+    return intval($b['start']) - intval($a['start']);
 }
 
 function free_time($email)
@@ -46,7 +46,9 @@ function free_time($email)
     global $PDO;
     
     $events = get_all_events($email);
+    print_r($events);
     usort($events, 'time_cmp');
+    print_r($events);
 
     $start = time();
     $end = strtotime('+7 days');
