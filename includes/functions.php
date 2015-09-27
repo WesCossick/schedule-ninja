@@ -88,7 +88,7 @@ function get_time_saved($recipient)
 function count_meetings_scheduled($recipient)
 {
     global $PDO;
-    $query = 'SELECT COUNT(*) FROM meeting_requests WHERE email = :recipient AND confirmed = 1';
+    $query = 'SELECT COUNT(*) FROM meeting_requests WHERE recipient = :recipient AND confirmed = 1';
     $stmt = $PDO->prepare($query);
     $stmt->execute(array('recipient' => $recipient));
     
