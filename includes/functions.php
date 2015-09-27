@@ -11,7 +11,8 @@ function meeting_requests($user_recipient)
     $statement->execute($params);
     $rows = $statement->fetchAll();
     
-    // Return return $rows;
+    // Return
+    return $rows;
 }
 
 function is_meeting_request($subject, $main_body) {
