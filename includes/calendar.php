@@ -76,6 +76,7 @@ function get_all_events($email)
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
     curl_setopt($ch, CURLOPT_AUTOREFERER, true);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: '.$access_token));
+    echo $access_token;
 
     if(($response = curl_exec($ch)) === false)
     {
