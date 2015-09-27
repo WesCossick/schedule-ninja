@@ -12,7 +12,7 @@ function random_string($length, $charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij
     }
     
     return $str;
-} 
+}
 
 for ($i = 0; $i < 10; $i++) {
     $type = $i % 2 == 0 ? 'direct' : 'email';
@@ -21,14 +21,15 @@ for ($i = 0; $i < 10; $i++) {
     $recipient = $i % 2 == 0 ? 'grilled.moose@gmail.com' : 'htx@samueltaylor.org';
     $sender_name = random_string(9, 'abcdefghijklmnopqrstuvwxyz');
     $sender_email = "$sender_name@samueltaylor.org";
+    $hours = rand(1, 6);
 
     $constraints_after = $i % 4 == 0 ? NULL : date("Y-m-d H:i:s", $int);
-    $constraints_before = $i % 3 == 0 ? NULL : date("Y-m-d H:i:s", $int + 60 * 
+    $constraints_before = $i % 3 == 0 ? NULL : date("Y-m-d H:i:s", $int + 60 *
         60 * 24 * 7);
     $requested_date = NULL;
 
-    create_meeting_request($type, $date_received, $recipient, $sender_email, 
-        $sender_name, $constraints_after, $constraints_before, $requested_date);
+    create_meeting_request($type, $date_received, $recipient, $sender_email,
+        $sender_name, $constraints_after, $constraints_before, $requested_date, $hours);
 }
 
 echo 'yey';

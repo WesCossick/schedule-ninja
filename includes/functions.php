@@ -15,17 +15,17 @@ function meeting_requests($user_recipient)
     return $rows;
 }
 
-function create_meeting_request($type, $date_received, $recipient, 
-    $sender_email, $sender_name, $constraints_after, $constraints_before, 
-    $requested_date) {
+function create_meeting_request($type, $date_received, $recipient,
+    $sender_email, $sender_name, $constraints_after=null, $constraints_before=null,
+    $requested_date=null, $hours=0) {
 
     global $PDO;
-    $query = 'INSERT INTO `meeting_requests` (`meeting_request_id`, `type`,'.  
-        '`date_received`, `recipient`, `sender_email`, `sender_name`, '.
-        '`constraints_after`, `constraints_before`, `requested_date`) VALUES '.
-        '(NULL, :type, :date_received, :recipient, :sender_email,'.
-        ':sender_name, :constraints_after, :constraints_before,'.
-        ':requested_date);';
+    $query = 'INSERT INTO `meeting_requests` (`meeting_request_id`, `type`,
+        `date_received`, `recipient`, `sender_email`, `sender_name`,
+        `constraints_after`, `constraints_before`, `requested_date`, `hours`) VALUES
+        (NULL, :type, :date_received, :recipient, :sender_email,
+        :sender_name, :constraints_after, :constraints_before,
+        :requested_date, :hours);';
 
     $stmt = $PDO->prepare($query);
     $params = array(
@@ -37,6 +37,7 @@ function create_meeting_request($type, $date_received, $recipient,
         'constraints_after' => $constraints_after,
         'constraints_before' => $constraints_before,
         'requested_date' => $requested_date,
+        'hours' => $hours,
     );
     $stmt->execute($params);
 }
@@ -45,7 +46,7 @@ function create_meeting_request($type, $date_received, $recipient,
 function count_meeting_requests($recipient)
 {
    global $PDO;
-   $query = 'SELECT COUNT(*) FROM meeting_requests WHERE recipient = :recipient'; 
+   $query = 'SELECT COUNT(*) FROM meeting_requests WHERE recipient = :recipient';
    $stmt = $PDO->prepare($query);
    $params = array(
        'recipient' => $recipient,
