@@ -256,8 +256,8 @@
                 
                 for(var i = 0; i < data.length; i++)
                 {
-                    var start = moment(data[i].start);
-                    var end = moment(data[i].end);
+                    var start = moment.unix(data[i].start);
+                    var end = moment.unix(data[i].end);
                     html += start.format("ddd, hA");
                     html += " ";
                     html += end.format("ddd, hA");
