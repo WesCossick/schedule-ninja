@@ -1,6 +1,4 @@
 <?php
-print_r($_SERVER);
-exit;
 // Connect to database
 $database_username = getenv('MYSQL_USER');
 $database_password = getenv('MYSQL_PASS');
@@ -29,12 +27,12 @@ session_start();
 
 
 // Include the functions
-require('includes/functions.php');
+require($_SERVER['DOCUMENT_ROOT'].'/includes/functions.php');
 
 
 // Check if they've logged in
 if($_SESSION['email'] == '')
 {
-    require('');
+    require($_SERVER['DOCUMENT_ROOT'].'/login.php');
 }
 ?>

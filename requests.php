@@ -1,10 +1,10 @@
-<?php require('config/main.php'); ?>
+<?php require($_SERVER['DOCUMENT_ROOT'].'/config/main.php'); ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>SB Admin - Bootstrap Admin Template</title>
-    <?php require('includes/head.php'); ?>
+    <?php require($_SERVER['DOCUMENT_ROOT'].'/includes/head.php'); ?>
     
     <style>
     div.email_box{
@@ -67,7 +67,7 @@
 
 <body>
     <div id="wrapper">
-        <?php require('includes/navigation.php'); ?>
+        <?php require($_SERVER['DOCUMENT_ROOT'].'/includes/navigation.php'); ?>
 
         <div id="page-wrapper">
             <div class="container-fluid">
@@ -90,6 +90,6 @@
         </div>
     </div>
 
-    <?php require('includes/scripts.php'); ?>
+    <?php require($_SERVER['DOCUMENT_ROOT'].'/includes/scripts.php'); ?>
 </body>
 </html>
