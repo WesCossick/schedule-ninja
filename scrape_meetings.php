@@ -14,17 +14,22 @@ foreach ($r->getData() as $account) {
 
 $r = $contextIO->listMessages($accountId, array('include_body' => true));
 foreach ($r->getData() as $message) {
-    var_dump($message);
+    //var_dump($message);
     $msg_id = $message['message_id'];
+    print "msg_id: $msg_id";
     $subject = $message['subject'];
+    print "subject: $subject";
     $date_received = date("Y-m-d H:i:s", $message['date_received']);
+    print "date_received: $date_received";
     $recipient = $message['addresses']['to'][0]['email'];
+    print "recipient: $recipient";
     $sender_email = $message['addresses']['from'][0]['email'];
     $sender_name = $message['addresses']['from'][0]['name'];
     $constraints_after = NULL;
     $constraints_before = NULL;
     $requested_date = NULL;
     $hours = NULL;
+    print "woah";
 
     $main_body = '';
     $bodies = $message['body'];
