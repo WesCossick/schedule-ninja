@@ -81,7 +81,7 @@
                 
                 <div class="row">
                     <?php foreach(meeting_requests($_SESSION['email']) as $meeting_request){ ?>
-                        TODO
+                        <?php print_r($meeting_request); ?>
                         
                         <div class="clearfix visible-lg-block"></div>
                     <?php } ?>
