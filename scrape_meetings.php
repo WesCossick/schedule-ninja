@@ -19,8 +19,12 @@ foreach ($r->getData() as $message) {
     $subject = $message['subject'];
     $date_received = date("Y-m-d H:i:s", $message['date_received']);
     $recipient = $message['addresses']['to'][0]['email'];
-    $sender_email = $message['addresses']['from'][0]['email'];
-    $sender_name = $message['addresses']['from'][0]['name'];
+    $sender_email = 'theninja@getschedule.ninja';
+    $sender_name = 'Schedule Ninja';
+    foreach ($message['addresses']['from'] as $from) {
+        $sender_email = $from['email'];
+        $sender_name = $from['name'];
+    }
     $constraints_after = NULL;
     $constraints_before = NULL;
     $requested_date = NULL;
