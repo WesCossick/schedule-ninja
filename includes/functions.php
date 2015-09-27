@@ -141,7 +141,7 @@ function days_gone_by($recipient)
     {
         global $PDO;
         
-        $current = date('Y-m-d', (time() + (($i*(-1)+1) * 24 * 60 * 60)));
+        $current = date('Y-m-d', (time() + (($i*(-1)-1) * 24 * 60 * 60)));
         $yesterday = $nextWeek = time() + (($i*(-1)) * 24 * 60 * 60);
         $past = date('Y-m-d', $yesterday);
         
