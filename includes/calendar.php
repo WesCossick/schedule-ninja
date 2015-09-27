@@ -1,11 +1,29 @@
 <?php
-function free_time($events)
+function suggested_times($email)
+{
+    global $PDO;
+    
+    $free = free_time($email);
+    
+    for($i = 1; $i < 7; $i++)
+    {
+        for($j = 8; $j < 18; $j++)
+        {
+            $unix = strtotime('+'.$i.' days '.$j.' hours', strtotime(date('Y-m-d', strtotime('+1 day'))));
+            echo date('Y-m-d H:i:s', $unix).PHP_EOL;
+        }
+    }
+}
+
+function free_time($email)
 {
     // Globals
     global $PDO;
+    
+    $events = get_all_events($email);
 
     $start = time();
-    $end = time() + 60 * 60 * 24 * 7;
+    $end = strtotime('+7 days');
 
     $free = array();
 
