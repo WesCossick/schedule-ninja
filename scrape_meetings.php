@@ -44,4 +44,6 @@ foreach ($r->getData() as $message) {
     }
 }
 
+print 'Done printing'
+
 ?>
