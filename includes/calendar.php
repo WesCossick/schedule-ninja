@@ -183,7 +183,6 @@ function get_all_events($email)
 
         // Get JSON and token
         $json2 = json_decode($response, true);
-        print_r($json2);
         
         
         // Loop over events
