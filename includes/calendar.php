@@ -58,12 +58,12 @@ function free_time($email)
     $prev = $start;
     foreach ($events as $event) {
         if ($prev < $event['start']) {
-            $free[] = array('start' => $prev, 'end' => $event['start']);
+            $free[] = array('start' => $prev, 'start_friendly' => date('Y-m-d H:i:s', $prev), 'end' => $event['start']);
         }
         $prev = $event['end'];
     }
     if ($prev < $end) {
-        $free[] = array('start' => $prev, 'end' => $end);
+        $free[] = array('start' => $prev, 'start_friendly' => date('Y-m-d H:i:s', $prev), 'end' => $end);
     }
     return $free;
 }
@@ -178,6 +178,7 @@ function get_all_events($email)
             {
                 $events[] = array(
                     'start' => strtotime($item2['start']['dateTime']),
+                    'start_friendly' => date('Y-m-d H:i:s', strtotime($item2['start']['dateTime'])),
                     'end' => strtotime($item2['end']['dateTime']),
                 );
             }
