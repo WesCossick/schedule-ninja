@@ -155,7 +155,7 @@
                                 <div class="bottom_half">
                                     <table>
                                         <tr>
-                                            <td>
+                                            <td class="approve_<?php echo $meeting_request['type']; ?>" data-senderemail="<?php echo $meeting_request['sender_email']; ?>" data-useremail="<?php echo $_SESSION['email']; ?>" data-subject="<?php echo $meeting_request['subject']; ?>">
                                                 <i class="fa fa-check"></i>
                                                 
                                                 <?php if($meeting_request['type'] == 'direct') { ?>
@@ -187,5 +187,27 @@
     </div>
 
     <?php require($_SERVER['DOCUMENT_ROOT'].'/includes/scripts.php'); ?>
+    
+    <script>
+    $(document).read(function(){
+        $(".approve_email").click(function(){
+            var sender_email = $(this).data("senderemail");
+            var user_email = $(this).data("useremail");
+            var subject = $(this).data("subject");
+            
+            $.ajax({
+                method: "POST",
+                url: "/approve_email",
+                data: {
+                    sender_email: "John",
+                    user_email: "Boston",
+                    subject: "",
+                }
+            }).done(function(msg){
+                alert("Data Saved: " + msg);
+            });
+        });
+    });
+    </script>
 </body>
 </html>
