@@ -37,7 +37,7 @@ function suggested_times($email)
 }
 
 function time_cmp($a, $b) {
-    return intval($b['start']) - intval($a['start']);
+    return intval($a['start']) - intval($b['start']);
 }
 
 function free_time($email)
@@ -46,9 +46,7 @@ function free_time($email)
     global $PDO;
     
     $events = get_all_events($email);
-    print_r($events);
     usort($events, 'time_cmp');
-    print_r($events);
 
     $start = time();
     $end = strtotime('+7 days');
@@ -58,12 +56,12 @@ function free_time($email)
     $prev = $start;
     foreach ($events as $event) {
         if ($prev < $event['start']) {
-            $free[] = array('start' => $prev, 'start_friendly' => date('Y-m-d H:i:s', $prev), 'end' => $event['start']);
+            $free[] = array('start' => $prev, 'start_friendly' => date('Y-m-d H:i:s', $prev), 'end' => $event['start'], 'end_friendly' => date('Y-m-d H:i:s', $event['start']));
         }
         $prev = $event['end'];
     }
     if ($prev < $end) {
-        $free[] = array('start' => $prev, 'start_friendly' => date('Y-m-d H:i:s', $prev), 'end' => $end);
+        $free[] = array('start' => $prev, 'start_friendly' => date('Y-m-d H:i:s', $prev), 'end' => $end, 'end_friendly' => date('Y-m-d H:i:s', $end));
     }
     return $free;
 }
