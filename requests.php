@@ -133,7 +133,7 @@
                                         
                                         <strong>Bob Smith</strong> has also been invited.
                                     <?php } else { ?>
-                                        TODO
+                                        <?php echo $meeting_request['body']; ?>
                                     <?php } ?>
                                     
                                     <div class="date">
