@@ -49,9 +49,11 @@
                 </div>
                 
                 <div class="row">
-                    <div class="well">
-                        <h3>Send invitation</h3>
-                        This is a test
+                    <div class="col-xs-12">
+                        <div class="well">
+                            <h3 style="margin-top:0;">Send invitation</h3>
+                            This is a test
+                        </div>
                     </div>
                     
                     <?php
