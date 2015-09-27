@@ -35,6 +35,7 @@ function create_meeting_request($type, $date_received, $recipient,
         :requested_date, :hours);';
     */
     $stmt = $PDO->query($query);
+    print_r($stmt->errorInfo());
     echo 'good2';
 
     /*
