@@ -40,7 +40,7 @@ print_r($_SESSION);
 if($_SESSION['email'] == '')
 {
     // Attempt to log in
-    $query = 'SELECT COUNT(*) FROM users WHERE email = :email AND password = :password';
+    $query = 'SELECT first_name, last_name FROM users WHERE email = :email AND password = :password';
     $statement = $PDO->prepare($query);
     $params = array(
         'email' => $_POST['email'],
