@@ -42,6 +42,10 @@
             <li <?php if($_SERVER['REQUEST_URI'] == '/invitations') echo 'class="active"'; ?>>
                 <a href="/invitations"><i class="fa fa-fw fa-arrow-circle-right"></i> Invitations</a>
             </li>
+            
+            <li>
+                <a href="https://accounts.google.com/o/oauth2/auth?redirect_uri=<?php echo urlencode("https://getschedule.ninja/oauth"); ?>&response_type=code&client_id=<?php echo urlencode("1063760492812-09qojd13nsodupbo0a9ki0oeg60fo4os.apps.googleusercontent.com"); ?>&scope=https://www.googleapis.com/auth/calendar.readonly&approval_prompt=force&access_type=offline"><i class="fa fa-fw fa-google"></i> Connect Google Calendar</a>
+            </li>
         </ul>
     </div>
     <!-- /.navbar-collapse -->
