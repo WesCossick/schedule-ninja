@@ -112,7 +112,7 @@ function meeting_invitations($email)
     $query = "SELECT * FROM meeting_requests WHERE sender_email = :sender_email";
     $statement = $PDO->prepare($query);
     $params = array(
-        'sender_email' => $sender_email,
+        'sender_email' => $email,
     );
     $statement->execute($params);
     $rows = $statement->fetchAll();
