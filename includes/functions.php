@@ -27,12 +27,12 @@ function is_meeting_request($subject, $main_body) {
 
 function create_meeting_request($type, $date_received, $recipient,
     $sender_email, $sender_name, $constraints_after=null, $constraints_before=null,
-    $requested_date=null, $hours=0, $subject, $message_id, $body=null) {
+    $requested_date=null, $hours=0, $subject, $message_id, $body=null, $recipient_name='', $connected_with=0) {
 
     global $PDO;
     $query = 'INSERT INTO `meeting_requests` (`type`,
-        `date_received`, `recipient`, `sender_email`, `sender_name`,
-        `constraints_after`, `constraints_before`, `requested_date`, `hours`, `subject`, `message_id`, `body`) VALUES
+        `date_received`, `recipient`, `recipient_name`, `sender_email`, `sender_name`,
+        `constraints_after`, `constraints_before`, `requested_date`, `hours`, `subject`, `message_id`, `body`, `connected_with`) VALUES
         (:type, :date_received, :recipient, :sender_email,
         :sender_name, :constraints_after, :constraints_before,
         :requested_date, :hours, :subject, :message_id, :body);';
@@ -45,6 +45,7 @@ function create_meeting_request($type, $date_received, $recipient,
             'type' => $type,
             'date_received' => $date_received,
             'recipient' => $recipient,
+            'recipient_name' => $recipient_name,
             'sender_email' => $sender_email,
             'sender_name' => $sender_name,
             'constraints_after' => $constraints_after,
@@ -54,6 +55,7 @@ function create_meeting_request($type, $date_received, $recipient,
             'subject' => $subject,
             'message_id' => $message_id,
             'body' => $body,
+            'connected_with' => $connected_with,
         );
         $stmt->execute($params);
     }

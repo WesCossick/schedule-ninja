@@ -1,4 +1,25 @@
-<?php require($_SERVER['DOCUMENT_ROOT'].'/config/main.php'); ?>
+<?php
+require($_SERVER['DOCUMENT_ROOT'].'/config/main.php');
+
+if(isset($_POST['email1']) && isset($_POST['name1']) && isset($_POST['hours']))
+{
+    $connected_with = 0;
+    if(isset($_POST['email2']) && isset($_POST['name2']))
+        $connected_with = rand();
+    
+    
+    create_meeting_request('direct', date('Y-m-d H:i:s'), $_POST['email1'], $_SESSION['email'], $_SESSION['first_name'].' '$_SESSION['last_name'], null, null, null, $_POST['hours'], '', null, null, $_POST['name1'], $connected_with);
+    
+    if(isset($_POST['email2']) && isset($_POST['name2']))
+        create_meeting_request('direct', date('Y-m-d H:i:s'), $_POST['email2'], $_SESSION['email'], $_SESSION['first_name'].' '$_SESSION['last_name'], null, null, null, $_POST['hours'], '', null, null, $_POST['name2'], $connected_with);
+        
+    if(isset($_POST['email3']) && isset($_POST['name3']))
+        create_meeting_request('direct', date('Y-m-d H:i:s'), $_POST['email3'], $_SESSION['email'], $_SESSION['first_name'].' '$_SESSION['last_name'], null, null, null, $_POST['hours'], '', null, null, $_POST['name3'], $connected_with);
+        
+    if(isset($_POST['email4']) && isset($_POST['name4']))
+        create_meeting_request('direct', date('Y-m-d H:i:s'), $_POST['email4'], $_SESSION['email'], $_SESSION['first_name'].' '$_SESSION['last_name'], null, null, null, $_POST['hours'], '', null, null, $_POST['name4'], $connected_with);
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
