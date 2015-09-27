@@ -24,10 +24,10 @@ function create_meeting_request($type, $date_received, $recipient,
     $requested_date=null, $hours=0) {
 
     global $PDO;
-    $query = 'INSERT INTO `meeting_requests` (`meeting_request_id`, `type`,
+    $query = 'INSERT INTO `meeting_requests` (`type`,
         `date_received`, `recipient`, `sender_email`, `sender_name`,
         `constraints_after`, `constraints_before`, `requested_date`, `hours`) VALUES
-        (NULL, :type, :date_received, :recipient, :sender_email,
+        (:type, :date_received, :recipient, :sender_email,
         :sender_name, :constraints_after, :constraints_before,
         :requested_date, :hours);';
 
