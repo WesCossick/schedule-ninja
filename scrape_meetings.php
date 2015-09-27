@@ -40,7 +40,7 @@ $contextIO = new ContextIO(getenv('CONTEXTIO_KEY'), getenv('CONTEXTIO_SECRET'));
 $accountId = null;
 $r = $contextIO->listAccounts();
 foreach ($r->getData() as $account) {
-    echo $account['id'] . "\t" . join(", ", $account['email_addresses']) . "\n";
+    echo 'Scraping' . $account['id'] . "\t" . join(", ", $account['email_addresses']) . PHP_EOL;
     if (is_null($accountId)) {
         $accountId = $account['id'];
     }
@@ -70,12 +70,12 @@ foreach ($r->getData() as $message) {
     }
 
     if (is_meeting_request($subject, $main_body)) {
-        print 'is meeting request<br>';
+        print 'YES '.$subject.PHP_EOL;
         create_meeting_request('email', $date_received, $recipient, 
             $sender_email, $sender_name, $constraints_after,
             $constraints_before, $requested_date, $hours, $subject, $msg_id, $main_body);
     } else {
-        print 'is not meeting request<br>';
+        print 'NO  '.$subject.PHP_EOL;
     }
 }
 
