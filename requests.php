@@ -178,6 +178,8 @@
                                                 
                                                 <?php if($meeting_request['type'] == 'direct') { ?>
                                                     Find common time
+                                                <?php if($meeting_request['replied']) { ?>
+                                                    You've already replied!
                                                 <?php } else { ?>
                                                     Reply with availability
                                                 <?php } ?>
@@ -212,6 +214,7 @@
             var sender_email = $(this).data("senderemail");
             var user_email = $(this).data("useremail");
             var subject = $(this).data("subject");
+            var id = $(this).data("id");
             var $box = $(this).closest(".email_box");
             
             $.ajax({
@@ -221,6 +224,7 @@
                     sender_email: sender_email,
                     user_email: user_email,
                     subject: subject,
+                    id: id,
                 }
             }).done(function(msg){
                 $box.fadeTo(250, .3);
