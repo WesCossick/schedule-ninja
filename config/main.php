@@ -33,8 +33,6 @@ catch(PDOException $e)
 
 // Include the functions
 require($_SERVER['DOCUMENT_ROOT'].'/includes/functions.php');
-print_r($_COOKIE);
-print_r($_SESSION);
 
 
 // Check if they've logged in
@@ -53,7 +51,7 @@ if($_SESSION['email'] == '')
     // Save login if successful; otherwise, show login page
     if($statement->fetchColumn() == 1)
     {
-        $_SESSION['email'] == $_POST['email'];
+        $_SESSION['email'] = $_POST['email'];
     }
     else
     {
