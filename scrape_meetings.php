@@ -1,15 +1,49 @@
 <?php
-require('config/main.php');
-require_once 'php-libraries/contextio/class.contextio.php';
+// Show all errors
+error_reporting(E_ALL ^ E_NOTICE);
+ini_set('display_errors', 1);
+
+
+// Set default timezone
+date_default_timezone_set('America/Chicago');
+
+
+// Connect to database
+$database_username = getenv('MYSQL_USER');
+$database_password = getenv('MYSQL_PASS');
+$database_host = 'localhost';
+$database_name = 'schedule-ninja';
+$database_info = 'mysql:host='.$database_host.';dbname='.$database_name;
+try
+{
+    $PDO = new PDO($database_info, $database_username, $database_password);
+    $PDO->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    $PDO->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+}
+catch(PDOException $e)
+{
+    echo $e->getMessage();
+    exit;
+}
+
+
+// Include the functions
+require('/var/www/html/includes/functions.php');
+require('/var/www/html/includes/calendar.php');
+require('/var/www/html/includes/handle_sendgrid.php');
+
+
+
+require_once '/var/www/html/php-libraries/contextio/class.contextio.php';
 
 $contextIO = new ContextIO(getenv('CONTEXTIO_KEY'), getenv('CONTEXTIO_SECRET'));
 $accountId = null;
 $r = $contextIO->listAccounts();
 foreach ($r->getData() as $account) {
-	echo $account['id'] . "\t" . join(", ", $account['email_addresses']) . "\n";
-	if (is_null($accountId)) {
-		$accountId = $account['id'];
-	}
+    echo $account['id'] . "\t" . join(", ", $account['email_addresses']) . "\n";
+    if (is_null($accountId)) {
+        $accountId = $account['id'];
+    }
 }
 
 $r = $contextIO->listMessages($accountId, array('include_body' => true));
@@ -38,7 +72,7 @@ foreach ($r->getData() as $message) {
     if (is_meeting_request($subject, $main_body)) {
         print 'is meeting request<br>';
         create_meeting_request('email', $date_received, $recipient, 
-            $sender_email, $sender_name, $constraints_after, 
+            $sender_email, $sender_name, $constraints_after,
             $constraints_before, $requested_date, $hours, $subject, $msg_id, $main_body);
     } else {
         print 'is not meeting request<br>';

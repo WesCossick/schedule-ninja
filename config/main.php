@@ -32,9 +32,9 @@ catch(PDOException $e)
 
 
 // Include the functions
-require($_SERVER['DOCUMENT_ROOT'].'/includes/functions.php');
-require($_SERVER['DOCUMENT_ROOT'].'/includes/calendar.php');
-require($_SERVER['DOCUMENT_ROOT'].'/includes/handle_sendgrid.php');
+require('/var/www/html/includes/functions.php');
+require('/var/www/html/includes/calendar.php');
+require('/var/www/html/includes/handle_sendgrid.php');
 
 
 // Check if they've logged in
