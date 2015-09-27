@@ -14,4 +14,24 @@ function meeting_requests()
     // Return
     return $row;
 }
+
+function count_meeting_requests()
+{
+    
+}
+
+function get_time_saved()
+{
+    
+}
+
+function count_meetings_scheduled()
+{
+    
+}
+
+function count_people_interacted_with()
+{
+    
+}
 ?>
