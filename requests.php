@@ -209,6 +209,7 @@
                 $box.css({
                     "pointer-events": "none",
                 });
+                console.log(msg);
             });
         });
     });
