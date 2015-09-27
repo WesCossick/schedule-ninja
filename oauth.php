@@ -11,6 +11,7 @@ $curl_params = array(
     'scope' => '',
     'grant_type' => 'authorization_code',
 );
+echo http_build_query($curl_params);
 
 
 // API call
