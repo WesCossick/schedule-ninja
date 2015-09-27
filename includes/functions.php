@@ -25,10 +25,8 @@ function count_meeting_requests($recipient)
        'recipient' => $recipient,
    );
    $stmt->execute($params);
-   $row = $stmt->fetch();
-   var_dump($row);
 
-   return $row;
+   return $stmt->fetchColumn();
 }
 
 function get_time_saved($recipient)
