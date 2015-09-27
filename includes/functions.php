@@ -1,6 +1,8 @@
 <?php
+
 function meeting_requests()
 {
+    global $PDO;
     // Do something
     $query = "SELECT * FROM users WHERE email = :email";
     $statement = $PDO->prepare($query);
@@ -18,6 +20,7 @@ function meeting_requests()
 // int
 function count_meeting_requests($recipient)
 {
+    global $PDO;
    $query = 'SELECT COUNT(*) FROM meeting_requests WHERE recipient = :recipient'; 
    $stmt = $PDO->prepare($query);
    $params = array(
@@ -32,18 +35,21 @@ function count_meeting_requests($recipient)
 
 function get_time_saved($recipient)
 {
+    global $PDO;
     return 5 * count_meeting_requests();
 }
 
 // int
 function count_meetings_scheduled($recipient)
 {
+    global $PDO;
     
 }
 
 // int
 function count_people_interacted_with($recipient)
 {
+    global $PDO;
     
 }
 ?>
