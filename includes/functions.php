@@ -77,7 +77,6 @@ function count_meeting_requests($recipient)
 
 function get_time_saved($recipient)
 {
-    global $PDO;
     $mins = intval(8.33 * count_meetings_scheduled($recipient));
     $hrs = intval($mins /  60);
     $mins %= 60;
