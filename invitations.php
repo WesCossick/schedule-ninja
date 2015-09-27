@@ -74,7 +74,7 @@
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label for="name1">Recipient name(s)</label>
+                                    <label for="name1">Approximate length in hours</label>
                                     <input type="number" class="form-control" name="hours" id="hours" value="1" min=".25" max="6" step=".25" placeholder="1">
                                 </div>
                                 
