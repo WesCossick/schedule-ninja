@@ -38,7 +38,6 @@
             <li <?php if($_SERVER['REQUEST_URI'] == '/requests') echo 'class="active"'; ?>>
                 <a href="/requests"><i class="fa fa-fw fa-comment"></i> Requests</a>
             </li>
-            <?php print_r($_SERVER); ?>
         </ul>
     </div>
     <!-- /.navbar-collapse -->
