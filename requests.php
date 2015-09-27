@@ -91,13 +91,13 @@
                                     <h3><?php echo $meeting_request['sender_name']; ?> <small>Would like to meet
                                     
                                     <?php if(!is_null($meeting_request['constraints_after']) && !is_null($meeting_request['constraints_before'])) { ?>
-                                        between <?php echo date('l', strtotime($meeting_request['constraints_after'])); ?> and <?php echo date('l', strtotime($meeting_request['constraints_before'])); ?>
+                                        between <?php echo date('D (n/j)', strtotime($meeting_request['constraints_after'])); ?> and <?php echo date('D (n/j)', strtotime($meeting_request['constraints_before'])); ?>
                                     <?php } else if(!is_null($meeting_request['constraints_after'])) { ?>
-                                        after <?php echo date('l', strtotime($meeting_request['constraints_after'])); ?>
+                                        after <?php echo date('D (n/j)', strtotime($meeting_request['constraints_after'])); ?>
                                     <?php } else if(!is_null($meeting_request['constraints_before'])) { ?>
-                                        before <?php echo date('l', strtotime($meeting_request['constraints_before'])); ?>
+                                        before <?php echo date('D (n/j)', strtotime($meeting_request['constraints_before'])); ?>
                                     <?php } else if(!is_null($meeting_request['requested_date'])) { ?>
-                                        on <?php echo date('l', strtotime($meeting_request['requested_date'])); ?>
+                                        on <?php echo date('D (n/j)', strtotime($meeting_request['requested_date'])); ?>
                                     <?php } else { ?>
                                         soon
                                     <?php } ?>
