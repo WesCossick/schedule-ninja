@@ -14,7 +14,6 @@ foreach ($r->getData() as $account) {
 
 $r = $contextIO->listMessages($accountId, array('include_body' => true));
 foreach ($r->getData() as $message) {
-    //var_dump($message);
     $msg_id = $message['message_id'];
     $subject = $message['subject'];
     $date_received = date("Y-m-d H:i:s", $message['date_received']);
@@ -25,7 +24,6 @@ foreach ($r->getData() as $message) {
     $constraints_before = NULL;
     $requested_date = NULL;
     $hours = 0;
-    print "got things<br>";
 
     $main_body = '';
     $bodies = $message['body'];
@@ -37,8 +35,6 @@ foreach ($r->getData() as $message) {
         }
     }
 
-    print 'got body<br>';
-
     if (is_meeting_request($subject, $main_body)) {
         print 'is meeting request<br>';
         create_meeting_request('email', $date_received, $recipient, 
@@ -48,7 +44,5 @@ foreach ($r->getData() as $message) {
         print 'is not meeting request<br>';
     }
 }
-
-print 'Done printing'
 
 ?>

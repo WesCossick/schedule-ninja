@@ -20,6 +20,9 @@ function is_meeting_request($subject, $main_body) {
     foreach ($messages as $msg) {
         if (stripos($msg, $subject) !== false) {
             return true;
+            echo $msg . ' YES in ' . $subject;
+        } else {
+            echo $msg . ' not in ' . $subject;
         }
     }
     return false;
