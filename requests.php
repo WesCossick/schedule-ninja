@@ -81,9 +81,72 @@
                 
                 <div class="row">
                     <?php foreach(meeting_requests($_SESSION['email']) as $meeting_request){ ?>
-                        <?php print_r($meeting_request); ?>
+                        <div class="col-xs-12 col-lg-6">
+                            <div class="email_box">
+                                <div class="top_half">
+                                    <h3><?php echo $meeting_request['sender_name']; ?> <small>Would like to meet
+                                    
+                                    <?php if(!is_null($meeting_request['constraints_after']) && !is_null($meeting_request['constraints_before'])) { ?>
+                                        between <?php echo $meeting_request['constraints_after']; ?> and <?php echo $meeting_request['constraints_before']; ?>
+                                    <?php } else if(!is_null($meeting_request['constraints_after'])) { ?>
+                                        after <?php echo $meeting_request['constraints_after']; ?>
+                                    <?php } else if(!is_null($meeting_request['constraints_before'])) { ?>
+                                        before <?php echo $meeting_request['constraints_before']; ?>
+                                    <?php } else if(!is_null($meeting_request['requested_date'])) { ?>
+                                        on <?php echo $meeting_request['requested_date']; ?>
+                                    <?php } else { ?>
+                                        soon
+                                    <?php } ?>
+                                    
+                                    </small></h3>
+                                    
+                                    <?php if(($meeting_request['type'] == 'direct') { ?>
+                                        The meeting will last <strong>about an hour</strong>. <strong>Bob Smith</strong> has also been invited.
+                                    <?php } else { ?>
+                                        TODO
+                                    <?php } ?>
+                                    
+                                    <div class="date">
+                                        Received <?php date('F j, g:ia', strtotime($meeting_request['date_received'])); ?>
+                                        
+                                        <?php
+                                        if(($meeting_request['type'] == 'direct')
+                                        {
+                                            echo 'via direct invite';
+                                        }
+                                        else
+                                        {
+                                            echo '@ '.$meeting_request['recipient'];
+                                        }
+                                        ?>
+                                    </div>
+                                </div>
+                                
+                                <div class="bottom_half">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <i class="fa fa-check"></i>
+                                                
+                                                <?php if(($meeting_request['type'] == 'direct') { ?>
+                                                    Find common time
+                                                <?php } else { ?>
+                                                    Reply with availability
+                                                <?php } ?>
+                                            </td>
+                                            
+                                            <td>
+                                                <i class="fa fa-times"></i> Deny
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                         
-                        <div class="clearfix visible-lg-block"></div>
+                        <?php if($count % 2 = 0) { ?>
+                            <div class="clearfix visible-lg-block"></div>
+                        <?php } ?>
                     <?php } ?>
                 </div>
             </div>
