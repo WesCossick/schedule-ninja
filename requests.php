@@ -259,13 +259,14 @@
                     var start = moment.unix(data[i].start);
                     var end = moment.unix(data[i].end);
                     html += "<li>";
-                    html += start.format("ddd, hA");
+                    html += start.format("ddd, ha");
                     html += " - ";
                     html += end.format("hA");
                     html += "</li>";
                     html += "<br>";
                 }
-                var html += "</ul>";
+                
+                html += "</ul>";
                 
                 $(".container-fluid").prepend("<div class='alert alert-success'><strong>Great!</strong> here are some times you are free:<br>"+html+"</div>");
             });
