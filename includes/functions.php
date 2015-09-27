@@ -27,15 +27,15 @@ function is_meeting_request($subject, $main_body) {
 
 function create_meeting_request($type, $date_received, $recipient,
     $sender_email, $sender_name, $constraints_after=null, $constraints_before=null,
-    $requested_date=null, $hours=0, $subject, $message_id) {
+    $requested_date=null, $hours=0, $subject, $message_id, $body=null) {
 
     global $PDO;
     $query = 'INSERT INTO `meeting_requests` (`type`,
         `date_received`, `recipient`, `sender_email`, `sender_name`,
-        `constraints_after`, `constraints_before`, `requested_date`, `hours`, `subject`, `message_id`) VALUES
+        `constraints_after`, `constraints_before`, `requested_date`, `hours`, `subject`, `message_id`, `body`) VALUES
         (:type, :date_received, :recipient, :sender_email,
         :sender_name, :constraints_after, :constraints_before,
-        :requested_date, :hours, :subject, :message_id);';
+        :requested_date, :hours, :subject, :message_id, :body);';
     try {
         $PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $PDO->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
@@ -53,6 +53,7 @@ function create_meeting_request($type, $date_received, $recipient,
             'hours' => $hours,
             'subject' => $subject,
             'message_id' => $message_id,
+            'body' => $body,
         );
         $stmt->execute($params);
     }
