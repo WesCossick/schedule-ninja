@@ -14,7 +14,10 @@ foreach ($r->getData() as $account) {
 
 $r = $contextIO->listMessages($accountId, $args);
 foreach ($r->getData() as $message) {
-    var_dump($message);
+    $msg_id = $message['message_id'];
+    $subject = $message['subject'];
+    $extensive_msg = $contextIO->getMessage($accountId, $msg_id);
+    var_dump($extensive_msg);
 }
 
 ?>
