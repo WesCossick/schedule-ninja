@@ -24,41 +24,34 @@ function create_meeting_request($type, $date_received, $recipient,
     $requested_date=null, $hours=0) {
 
     global $PDO;
-    echo 'good1';
-    $query = "INSERT INTO meeting_requests SET hours = 1, recipient = 'kenstarr1845@gmail.com'";
-    /*
     $query = 'INSERT INTO `meeting_requests` (`type`,
         `date_received`, `recipient`, `sender_email`, `sender_name`,
         `constraints_after`, `constraints_before`, `requested_date`, `hours`) VALUES
         (:type, :date_received, :recipient, :sender_email,
         :sender_name, :constraints_after, :constraints_before,
         :requested_date, :hours);';
-    */
     try {
         $PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $stmt = $PDO->query($query);
+        $PDO->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+        
+        $stmt = $PDO->prepare($query);
+        $params = array(
+            'type' => $type,
+            'date_received' => $date_received,
+            'recipient' => $recipient,
+            'sender_email' => $sender_email,
+            'sender_name' => $sender_name,
+            'constraints_after' => $constraints_after,
+            'constraints_before' => $constraints_before,
+            'requested_date' => $requested_date,
+            'hours' => $hours,
+        );
+        $stmt->execute($params);
     }
     catch(Exception $e) {
         echo 'Exception -> ';
         var_dump($e->getMessage());
     }
-    echo 'good2';
-
-    /*
-    $stmt = $PDO->prepare($query);
-    $params = array(
-        'type' => $type,
-        'date_received' => $date_received,
-        'recipient' => $recipient,
-        'sender_email' => $sender_email,
-        'sender_name' => $sender_name,
-        'constraints_after' => $constraints_after,
-        'constraints_before' => $constraints_before,
-        'requested_date' => $requested_date,
-        'hours' => $hours,
-    );
-    return $stmt->execute($params);
-    */
 }
 
 // int
