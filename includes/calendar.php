@@ -3,16 +3,36 @@ function suggested_times($email)
 {
     global $PDO;
     
+    $hours = 1;
+    
     $free = free_time($email);
     
-    for($i = 1; $i < 7; $i++)
+    for($i = 0; $i < 7; $i++)
     {
         for($j = 8; $j < 18; $j++)
         {
+            $is_free = false;
             $unix = strtotime('+'.$i.' days '.$j.' hours', strtotime(date('Y-m-d', strtotime('+1 day'))));
-            echo date('Y-m-d H:i:s', $unix).PHP_EOL;
+            foreach($free as $free_time)
+            {
+                if($unix >= $free_time['start'] && $unix+$hours*3600 <= $free_time['end'])
+                {
+                    $is_free = true;
+                    $j += 4;
+                }
+            }
+            if($is_free)
+            {
+                $suggestions[] = array(
+                    'start' => $unix,
+                    'end' => $unix+$hours*3600,
+                );
+            }
+            
         }
     }
+    
+    return $suggestions;
 }
 
 function free_time($email)
