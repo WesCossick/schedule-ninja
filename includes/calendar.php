@@ -11,6 +11,10 @@ function get_all_events($email)
     global $PDO;
     
     
+    // Initiliaze
+    $events = [];
+    
+    
     // Get refresh token
     $query = "SELECT refresh_token FROM users WHERE email = :email";
     $statement = $PDO->prepare($query);
@@ -77,6 +81,47 @@ function get_all_events($email)
 
     // Get JSON and token
     $json = json_decode($response, true);
-    print_r($json);
+    
+    
+    // Loop over calendars
+    foreach($json['items'] as $item)
+    {
+        // API call
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, 'https://www.googleapis.com/calendar/v3/calendars/'.$item['id'].'/events');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_AUTOREFERER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$access_token));
+
+        if(($response = curl_exec($ch)) === false)
+        {
+            echo 'cURL Error: '.curl_error($ch).PHP_EOL.PHP_EOL;
+            continue;
+        }
+
+        curl_close($ch);
+
+
+        // Get JSON and token
+        $json2 = json_decode($response, true);
+        
+        
+        // Loop over events
+        foreach($json2['items'] as $item2)
+        {
+            $events[] = array(
+                'start' => strtotime($item2['dateTime']),
+                'end' => strtotime($item2['dateTime']),
+            );
+        }
+    }
+    
+    
+    // Return
+    print_r($events);
+    return $events;
 }
 ?>
