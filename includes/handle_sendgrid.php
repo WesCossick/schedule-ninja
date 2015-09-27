@@ -1,5 +1,7 @@
 <?php
 
+require_once $BASE_PATH.'/php_libraries/sendgrid-php/sendgrid-php.php';
+
 $SENDGRID_USER = getenv($SENDGRID_USER);
 $SENDGRID_PASS = getenv($SENDGRID_PASS);
 
@@ -27,7 +29,7 @@ function approve_meeting($to_address, $from_address, $original_subject)
 	send_email($to_address, $subject, $text, $html);
 }
 
-function send_email($to_address, $from_address, $subject, $text, $hmtl)
+function send_email($to_address, $subject, $text, $hmtl)
 {
 	global $SENDGRID_USER, $SENDGRID_PASS;
 	
