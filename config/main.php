@@ -4,6 +4,14 @@ error_reporting(E_ALL ^ E_NOTICE);
 ini_set('display_errors', 1);
 
 
+// Set default timezone
+date_default_timezone_set('America/Chicago');
+
+
+// Start session
+session_start();
+
+
 // Connect to database
 $database_username = getenv('MYSQL_USER');
 $database_password = getenv('MYSQL_PASS');
@@ -23,20 +31,11 @@ catch(PDOException $e)
 }
 
 
-// Set default timezone
-date_default_timezone_set('America/Chicago');
-
-
-// Start session
-session_start();
-
-
 // Include the functions
 require($_SERVER['DOCUMENT_ROOT'].'/includes/functions.php');
 
 
 // Check if they've logged in
-echo 'before';
 if($_SESSION['email'] == '')
 {
     // Attempt to log in
@@ -60,5 +59,4 @@ if($_SESSION['email'] == '')
         exit;
     }
 }
-echo 'good';
 ?>
