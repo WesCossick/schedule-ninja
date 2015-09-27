@@ -178,7 +178,7 @@
                                                 
                                                 <?php if($meeting_request['type'] == 'direct') { ?>
                                                     Find common time
-                                                <?php if($meeting_request['replied']) { ?>
+                                                <?php } else if($meeting_request['replied']) { ?>
                                                     You've already replied!
                                                 <?php } else { ?>
                                                     Reply with availability
