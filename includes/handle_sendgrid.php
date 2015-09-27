@@ -1,5 +1,5 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'].'/php-libraries/sendgrid-php/sendgrid-php.php';
+require '/var/www/html/php-libraries/sendgrid-php/sendgrid-php.php';
 
 $SENDGRID_USER = getenv('SENDGRID_USER');
 $SENDGRID_PASS = getenv('SENDGRID_PASS');
