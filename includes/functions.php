@@ -138,8 +138,21 @@ function days_gone_by($recipient)
     
     for($i = 7; $i >=0; $i--)
     {
-        $requests[] = array('period' => date('l', strtotime('-'.$i.'days')),
-        'requests' => rand(0, 100));
+        global $PDO;
+        
+        $j = $i + 1;
+        $current_date = date('l', strtotime('-'.$i.'days'));
+        $query = 'SELECT COUNT(*) FROM meeting_requests WHERE recipient = :email AND date_received BETWEEN UNIX_TIMESTAMP(NOW() - INTERVAL :i DAY) AND UNIX_TIMESTAMP(NOW() - INTERVAL :j DAY)';
+        $stmt = $PDO->prepare($query);
+        $params = array(
+            'email' => $email,
+            'i' => $i,
+            'j' => $j,
+        );
+        $stmt->execute($params);
+        
+        $requests[] = array('period' => $current_date,
+        'requests' => $stmt->fetch());
     }
     return $requests;
 }
