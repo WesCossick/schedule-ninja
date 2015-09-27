@@ -111,7 +111,7 @@
                                     <?php } ?>
                                     
                                     <div class="date">
-                                        Received <?php date('F j, g:ia', strtotime($meeting_request['date_received'])); ?>
+                                        Received <?php echo date('F j, g:ia', strtotime($meeting_request['date_received'])); ?>
                                         
                                         <?php
                                         if($meeting_request['type'] == 'direct')
