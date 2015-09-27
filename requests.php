@@ -105,7 +105,30 @@
                                     </small></h3>
                                     
                                     <?php if($meeting_request['type'] == 'direct'){ ?>
-                                        The meeting will last <strong>about an hour</strong>. <strong>Bob Smith</strong> has also been invited.
+                                        The meeting will last <strong>about
+                                        <?php
+                                        if($meeting_request['hours'] == .5)
+                                            echo 'half an hour';
+                                        else if($meeting_request['hours'] == 1)
+                                            echo 'an hour';
+                                        else if($meeting_request['hours'] == 1.5)
+                                            echo 'an hour and a half';
+                                        else if($meeting_request['hours'] == 2)
+                                            echo 'two hours';
+                                        else if($meeting_request['hours'] == 2.5)
+                                            echo 'two and a half hours';
+                                        else if($meeting_request['hours'] == 3)
+                                            echo 'three hours';
+                                        else if($meeting_request['hours'] == 3.5)
+                                            echo 'three and a half hours';
+                                        else if($meeting_request['hours'] == 4)
+                                            echo 'four hours';
+                                        else if($meeting_request['hours'] == 5)
+                                            echo 'five hours';
+                                        else if($meeting_request['hours'] == 6)
+                                            echo 'six hours';
+                                        ?>
+                                        </strong>. <strong>Bob Smith</strong> has also been invited.
                                     <?php } else { ?>
                                         TODO
                                     <?php } ?>
