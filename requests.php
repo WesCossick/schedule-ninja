@@ -189,7 +189,7 @@
     <?php require($_SERVER['DOCUMENT_ROOT'].'/includes/scripts.php'); ?>
     
     <script>
-    $(document).read(function(){
+    $(document).ready(function(){
         $(".approve_email").click(function(){
             var sender_email = $(this).data("senderemail");
             var user_email = $(this).data("useremail");
