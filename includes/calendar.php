@@ -19,7 +19,7 @@ function get_all_events($email)
         'email' => $email,
     );
     $statement->execute($params);
-    $refresh_token = $statement->fetchColumn();
+    $refresh_token = $statement->fetch();
     print_r($refresh_token);
     
     
