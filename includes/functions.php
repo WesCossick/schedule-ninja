@@ -58,10 +58,10 @@ function count_meeting_requests($recipient)
 function get_time_saved($recipient)
 {
     global $PDO;
-    mins = intval(8.33 * count_meeting_requests($recipient));
-    hrs = intval(mins /  60);
-    mins %= 60;
-    return hrs . 'h ' . mins . 'm';
+    $mins = intval(8.33 * count_meeting_requests($recipient));
+    $hrs = intval(mins /  60);
+    $mins %= 60;
+    return $hrs . 'h ' . $mins . 'm';
 }
 
 // int
