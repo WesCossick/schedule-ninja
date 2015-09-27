@@ -134,10 +134,11 @@
                                         <?php
                                         if($meeting_request['connected_with'])
                                         {
-                                            $query = "SELECT * FROM meeting_requests WHERE connected_with = :connected_with";
+                                            $query = "SELECT * FROM meeting_requests WHERE connected_with = :connected_with AND recipient != :email";
                                             $statement = $PDO->prepare($query);
                                             $params = array(
                                                 'connected_with' => $meeting_request['connected_with'],
+                                                'email' => $_SESSION['email'],
                                             );
                                             $statement->execute($params);
                                             
@@ -146,7 +147,7 @@
                                                 $names[] = $row['recipient_name'];
                                             }
                                             
-                                            echo '<strong>'.implode(', ', $names).'</strong> has also been invited.';
+                                            echo '<strong>You, '.implode(', ', $names).'</strong> have all been invited.';
                                         }
                                         ?>
                                     <?php } else { ?>
