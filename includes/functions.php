@@ -18,7 +18,7 @@ function meeting_requests($user_recipient)
 function is_meeting_request($subject, $main_body) {
     $messages = array('meeting request', 'let\'s meet', 'meeting', 'wanna netflix and chill');
     foreach ($messages as $msg) {
-        if (strpos($msg, $subject) !== false) {
+        if (stripos($msg, $subject) !== false) {
             return true;
         }
     }
