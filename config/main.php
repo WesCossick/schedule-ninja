@@ -24,4 +24,8 @@ date_default_timezone_set('America/Chicago');
 
 // Start session
 session_start();
+
+
+// Include the functions
+require('includes/functions.php');
 ?>
