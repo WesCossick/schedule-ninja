@@ -38,7 +38,6 @@ require($_SERVER['DOCUMENT_ROOT'].'/includes/functions.php');
 // Check if they've logged in
 if($_SESSION['email'] == '')
 {
-    print_r($_POST);
     // Attempt to log in
     $query = 'SELECT COUNT(*) FROM users WHERE email = :email AND password = :password';
     $statement = $PDO->prepare($query);
