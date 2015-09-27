@@ -121,7 +121,7 @@ function save_refresh_token($email, $refresh_token)
 {
     global $PDO;
     
-    $query = 'UPDATE users SET refresh_token =: refresh_token WHERE email = :email';
+    $query = 'UPDATE users SET refresh_token = :refresh_token WHERE email = :email';
     
     $insert_token = $PDO->prepare($query);
     
