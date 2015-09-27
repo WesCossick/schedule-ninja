@@ -10,19 +10,14 @@ function free_time($events)
     $free = array();
 
     $prev = $start;
-    $count = count($events);
     foreach ($events as $event) {
-        if (--$count == 0) {
-            break;
-        }
         if ($prev < $event['start']) {
             $free[] = array('start' => $prev, 'end' => $event['start']);
         }
         $prev = $event['end'];
     }
-    $last = end($free);
-    if ($last['end'] < $end) {
-        $free[] = array('start' => $last['end'], 'end' => $end);
+    if ($prev < $end) {
+        $free[] = array('start' => $prev, 'end' => $end);
     }
     return $free;
 }
