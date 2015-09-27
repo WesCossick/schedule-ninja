@@ -43,7 +43,7 @@ function create_meeting_request($type, $date_received, $recipient,
         'requested_date' => $requested_date,
         'hours' => $hours,
     );
-    $stmt->execute($params);
+    return $stmt->execute($params);
 }
 
 // int
