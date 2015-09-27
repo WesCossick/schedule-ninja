@@ -261,7 +261,7 @@
                     html += "<li>";
                     html += start.format("ddd, ha");
                     html += " - ";
-                    html += end.format("hA");
+                    html += end.format("ha");
                     html += "</li>";
                     html += "<br>";
                 }
