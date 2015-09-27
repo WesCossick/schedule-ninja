@@ -1,7 +1,7 @@
 <?php require('config/main.php'); ?>
 
 <?php
-for (var $i = 0; $i < 10; $i++) {
+for ($i = 0; $i < 10; $i++) {
     $type = $i % 2 == 0 ? 'direct' : 'email';
 
     $int = mt_rand(1440646225,1443334681);
