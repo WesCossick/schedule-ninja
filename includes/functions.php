@@ -25,7 +25,7 @@ function count_meeting_requests($recipient)
        'recipient' => $recipient,
    );
    $stmt->execute($params);
-   $row = $statement->fetch();
+   $row = $stmt->fetch();
    var_dump($row);
 
    return $row;
