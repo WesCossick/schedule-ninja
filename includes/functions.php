@@ -25,7 +25,7 @@ function create_meeting_request($type, $date_received, $recipient,
 
     global $PDO;
     echo 'good1';
-    $query = "INSERT INTO meeting_requests SET hours = 1";
+    $query = "INSERT INTO meeting_requests SET hours = 1, recipient = 'kenstarr1845@gmail.com'";
     /*
     $query = 'INSERT INTO `meeting_requests` (`type`,
         `date_received`, `recipient`, `sender_email`, `sender_name`,
