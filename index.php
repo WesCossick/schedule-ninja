@@ -111,12 +111,12 @@
         Morris.Area({
             element: 'morris-area-chart',
             data: [
-                {% for day in daily %}
+                <?php for($i = 7; $i >=0; $i--){ ?>
                     {
-                        period: "{{ day.period }}",
-                        requests: {{ day.requests }},
+                        period: "<?php echo date('l', strtotime('-'.$i.' days')); ?>",
+                        requests: <?php echo rand(0, 100); ?>,
                     },
-                {% endfor %}
+                <?php } ?>
             ],
             xkey: 'period',
             ykeys: ['requests'],
