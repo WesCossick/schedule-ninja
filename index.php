@@ -1,15 +1,15 @@
-<?php require('config/main.php'); ?>
+<?php require($_SERVER['DOCUMENT_ROOT'].'/config/main.php'); ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>SB Admin - Bootstrap Admin Template</title>
-    <?php require('includes/head.php'); ?>
+    <?php require($_SERVER['DOCUMENT_ROOT'].'/includes/head.php'); ?>
 </head>
 
 <body>
     <div id="wrapper">
-        <?php require('includes/navigation.php'); ?>
+        <?php require($_SERVER['DOCUMENT_ROOT'].'/includes/navigation.php'); ?>
 
         <div id="page-wrapper">
             <div class="container-fluid">
@@ -30,7 +30,7 @@
                                         <i class="fa fa-comment fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge"><?php echo count_meeting_requests(); ?></div>
+                                        <div class="huge"><?php echo count_meeting_requests($_SESSION['email']); ?></div>
                                         <div>Current Meeting Requests</div>
                                     </div>
                                 </div>
@@ -46,7 +46,7 @@
                                         <i class="fa fa-hourglass fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge"><?php echo get_time_saved(); ?></div>
+                                        <div class="huge"><?php echo get_time_saved($_SESSION['email']); ?></div>
                                         <div>Time Saved</div>
                                     </div>
                                 </div>
@@ -62,7 +62,7 @@
                                         <i class="fa fa-calendar-check-o fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge"><?php echo count_meetings_scheduled(); ?></div>
+                                        <div class="huge"><?php echo count_meetings_scheduled($_SESSION['email']); ?></div>
                                         <div>Meetings Scheduled</div>
                                     </div>
                                 </div>
@@ -78,7 +78,7 @@
                                         <i class="fa fa-users fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge"><?php echo count_people_interacted_with(); ?></div>
+                                        <div class="huge"><?php echo count_people_interacted_with($_SESSION['email']); ?></div>
                                         <div>People Interacted With</div>
                                     </div>
                                 </div>
@@ -103,7 +103,7 @@
         </div>
     </div>
 
-    <?php require('includes/scripts.php'); ?>
+    <?php require($_SERVER['DOCUMENT_ROOT'].'/includes/scripts.php'); ?>
     
     <script>
     $(function() {
@@ -111,12 +111,12 @@
         Morris.Area({
             element: 'morris-area-chart',
             data: [
-                {% for day in daily %}
+                <?php for($i = 7; $i >=0; $i--){ ?>
                     {
-                        period: "{{ day.period }}",
-                        requests: {{ day.requests }},
+                        period: "<?php echo date('l', strtotime('-'.$i.' days')); ?>",
+                        requests: <?php echo rand(0, 100); ?>,
                     },
-                {% endfor %}
+                <?php } ?>
             ],
             xkey: 'period',
             ykeys: ['requests'],
