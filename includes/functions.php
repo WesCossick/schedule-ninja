@@ -95,6 +95,23 @@ function count_meetings_scheduled($recipient)
 function count_people_interacted_with($recipient)
 {
     global $PDO;
-    return intval(0);
+    return intval(7);
 }
+
+function meeting_invitations($email)
+{
+    global $PDO;
+    // Do something
+    $query = "SELECT * FROM meeting_requests WHERE sender_email = :sender_email";
+    $statement = $PDO->prepare($query);
+    $params = array(
+        'sender_email' => $sender_email,
+    );
+    $statement->execute($params);
+    $rows = $statement->fetchAll();
+    
+    // Return
+    return $rows;
+}
+
 ?>
