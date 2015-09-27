@@ -22,13 +22,14 @@ foreach ($r->getData() as $message) {
     $sender_email = 'theninja@getschedule.ninja';
     $sender_name = 'Schedule Ninja';
     foreach ($message['addresses']['from'] as $from) {
+        var_dump($from);
         $sender_email = $from['email'];
         $sender_name = $from['name'];
     }
     $constraints_after = NULL;
     $constraints_before = NULL;
     $requested_date = NULL;
-    $hours = NULL;
+    $hours = 0;
     print "got things<br>";
 
     $main_body = '';
