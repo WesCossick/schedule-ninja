@@ -194,17 +194,21 @@
             var sender_email = $(this).data("senderemail");
             var user_email = $(this).data("useremail");
             var subject = $(this).data("subject");
+            var $box = $(this).closest(".email_box");
             
             $.ajax({
                 method: "POST",
                 url: "/approve_email",
                 data: {
-                    sender_email: "John",
-                    user_email: "Boston",
-                    subject: "",
+                    sender_email: sender_email,
+                    user_email: user_email,
+                    subject: subject,
                 }
             }).done(function(msg){
-                alert("Data Saved: " + msg);
+                $box.fadeTo(250, .3);
+                $box.css({
+                    "pointer-events": "none",
+                });
             });
         });
     });
