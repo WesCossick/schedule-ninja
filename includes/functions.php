@@ -156,7 +156,7 @@ function days_gone_by($recipient)
         $stmt->execute($params);
         
         $requests[] = array('period' => $current_date,
-        'requests' => $stmt->fetch());
+        'requests' => intval($stmt->fetchColumn()));
     }
     return $requests;
 }
