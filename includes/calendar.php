@@ -20,6 +20,7 @@ function free_time($events)
     if ($last['end'] < $end) {
         $free[] = array('start' => $last['end'], 'end' => $end);
     }
+    return $free;
 }
 
 function get_all_events($email)
