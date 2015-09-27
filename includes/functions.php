@@ -181,7 +181,7 @@ function confirm_request($request_id) {
 
 function confirm_stuff($sender, $recipient) {
     global $PDO;
-    $query = 'UPDATE meeting_requests SET confirmed = 1 WHERE sender_email = :sender AND recipient = :recip'
+    $query = 'UPDATE meeting_requests SET confirmed = 1 WHERE sender_email = :sender AND recipient = :recip';
     $stmt = $PDO->prepare($query);
     $params = array(
         'sender' => $sender,
