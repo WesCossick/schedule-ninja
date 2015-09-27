@@ -18,11 +18,11 @@ function meeting_requests($user_recipient)
 function is_meeting_request($subject, $main_body) {
     $messages = array('meeting request', 'let\'s meet', 'meeting', 'wanna netflix and chill');
     foreach ($messages as $msg) {
-        if (stripos($msg, $subject) !== false) {
+        if (stripos($subject, $msg) !== false) {
+            print $msg . ' YES in ' . $subject . PHP_EOL;
             return true;
-            echo $msg . ' YES in ' . $subject;
         } else {
-            echo $msg . ' not in ' . $subject;
+            print $msg . ' not in ' . $subject . PHP_EOL;
         }
     }
     return false;
