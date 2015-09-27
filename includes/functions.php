@@ -11,8 +11,7 @@ function meeting_requests($user_recipient)
     $statement->execute($params);
     $rows = $statement->fetchAll();
     
-    // Return
-    return $rows;
+    // Return return $rows;
 }
 
 function is_meeting_request($subject, $main_body) {
@@ -96,7 +95,10 @@ function count_meetings_scheduled($recipient)
 function count_people_interacted_with($recipient)
 {
     global $PDO;
-    return intval(7);
+    $query = 'SELECT COUNT(DISTINCT sender_email) FROM meeting_requests WHERE recipient = :recipient';
+    $stmt = $PDO->prepare($query);
+    $stmt->execute(array('recipient' => $recipient));
+    return intval($stmt->fetchColumn());
 }
 
 function meeting_invitations($email)
