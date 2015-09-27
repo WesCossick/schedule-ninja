@@ -80,7 +80,7 @@
                 </div>
                 
                 <div class="row">
-                    <?php for(meeting_requests() as $meeting_request){ ?>
+                    <?php for(meeting_requests($_SESSION['email']) as $meeting_request){ ?>
                         TODO
                         
                         <div class="clearfix visible-lg-block"></div>

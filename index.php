@@ -30,7 +30,7 @@
                                         <i class="fa fa-comment fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge"><?php echo count_meeting_requests(); ?></div>
+                                        <div class="huge"><?php echo count_meeting_requests($_SESSION['email']); ?></div>
                                         <div>Current Meeting Requests</div>
                                     </div>
                                 </div>
@@ -46,7 +46,7 @@
                                         <i class="fa fa-hourglass fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge"><?php echo get_time_saved(); ?></div>
+                                        <div class="huge"><?php echo get_time_saved($_SESSION['email']); ?></div>
                                         <div>Time Saved</div>
                                     </div>
                                 </div>
@@ -62,7 +62,7 @@
                                         <i class="fa fa-calendar-check-o fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge"><?php echo count_meetings_scheduled(); ?></div>
+                                        <div class="huge"><?php echo count_meetings_scheduled($_SESSION['email']); ?></div>
                                         <div>Meetings Scheduled</div>
                                     </div>
                                 </div>
@@ -78,7 +78,7 @@
                                         <i class="fa fa-users fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge"><?php echo count_people_interacted_with(); ?></div>
+                                        <div class="huge"><?php echo count_people_interacted_with($_SESSION['email']); ?></div>
                                         <div>People Interacted With</div>
                                     </div>
                                 </div>
