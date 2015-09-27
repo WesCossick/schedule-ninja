@@ -90,9 +90,26 @@
                                             ?></strong>.
                                         <?php } ?>
                                         
-                                        <strong>Bob Smith</strong> has also been invited.
+                                        <?php
+                                        if($meeting_request['connected_with'])
+                                        {
+                                            $query = "SELECT * FROM meeting_requests WHERE connected_with = :connected_with";
+                                            $statement = $PDO->prepare($query);
+                                            $params = array(
+                                                'connected_with' => $meeting_request['connected_with'],
+                                            );
+                                            $statement->execute($params);
+                                            
+                                            while($row = $statement->fetch())
+                                            {
+                                                $names[] = $row['recipient_name'];
+                                            }
+                                            
+                                            echo '<strong>'.implode(', ', $names).'</strong> has also been invited.';
+                                        }
+                                        ?>
                                     <?php } else { ?>
-                                        TODO
+                                        <?php echo $meeting_request['body']; ?>
                                     <?php } ?>
                                     
                                     <div class="date">
