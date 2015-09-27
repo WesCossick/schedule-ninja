@@ -100,7 +100,7 @@
                                     
                                     </small></h3>
                                     
-                                    <?php if(($meeting_request['type'] == 'direct') { ?>
+                                    <?php if($meeting_request['type'] == 'direct'){ ?>
                                         The meeting will last <strong>about an hour</strong>. <strong>Bob Smith</strong> has also been invited.
                                     <?php } else { ?>
                                         TODO
@@ -110,7 +110,7 @@
                                         Received <?php date('F j, g:ia', strtotime($meeting_request['date_received'])); ?>
                                         
                                         <?php
-                                        if(($meeting_request['type'] == 'direct')
+                                        if($meeting_request['type'] == 'direct')
                                         {
                                             echo 'via direct invite';
                                         }
@@ -128,7 +128,7 @@
                                             <td>
                                                 <i class="fa fa-check"></i>
                                                 
-                                                <?php if(($meeting_request['type'] == 'direct') { ?>
+                                                <?php if($meeting_request['type'] == 'direct') { ?>
                                                     Find common time
                                                 <?php } else { ?>
                                                     Reply with availability
