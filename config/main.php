@@ -8,7 +8,7 @@ ini_set('display_errors', 1);
 $database_username = getenv('MYSQL_USER');
 $database_password = getenv('MYSQL_PASS');
 $database_host = 'localhost';
-$database_name = '';
+$database_name = 'schedule-ninja';
 $database_info = 'mysql:host='.$database_host.';dbname='.$database_name;
 try
 {
