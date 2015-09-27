@@ -51,6 +51,7 @@ if($_SESSION['email'] == '')
     
     
     // Save login if successful; otherwise, show login page
+    echo $statement->rowCount();
     if($statement->rowCount() == 1)
     {
         $_SESSION['email'] = $_POST['email'];
