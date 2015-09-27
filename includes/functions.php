@@ -185,7 +185,7 @@ function confirm_stuff($sender, $recipient) {
     $stmt = $PDO->prepare($query);
     $params = array(
         'sender' => $sender,
-        'recipient' => $recipient,
+        'recip' => $recipient,
         );
     $stmt->execute($params);
 }
