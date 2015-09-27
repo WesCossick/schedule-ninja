@@ -52,7 +52,30 @@
                     <div class="col-xs-12">
                         <div class="well">
                             <h3 style="margin-top:0;">Send invitation</h3>
-                            This is a test
+                            <form method="post">
+                                <div class="form-group">
+                                    <label for="email">Recipient email(s)</label>
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="user@example.com">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="user@example.com">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="user@example.com">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="user@example.com">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email">Recipient name(s)</label>
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="user@example.com">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="user@example.com">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="user@example.com">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="user@example.com">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" name="password" id="password" placeholder="••••••••">
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
                         </div>
                     </div>
                     
