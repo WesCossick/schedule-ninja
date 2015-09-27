@@ -15,8 +15,17 @@ function meeting_requests($user_recipient)
     return $rows;
 }
 
-function create_meeting_request($type, $date_received, $recipient, $sender_email, $sender_name, $constraints_after, $constraints_before, $requested_date) {
-    $query = 'INSERT INTO `meeting_requests` (`meeting_request_id`, `type`, `date_received`, `recipient`, `sender_email`, `sender_name`, `constraints_after`, `constraints_before`, `requested_date`) VALUES (NULL, :type, :date_received, :recipient, :sender_email, :sender_name, :constraints_after, :constraints_before, :requested_date);';
+function create_meeting_request($type, $date_received, $recipient, 
+    $sender_email, $sender_name, $constraints_after, $constraints_before, 
+    $requested_date) {
+
+    $query = 'INSERT INTO `meeting_requests` (`meeting_request_id`, `type`,'.  
+        '`date_received`, `recipient`, `sender_email`, `sender_name`, '.
+        '`constraints_after`, `constraints_before`, `requested_date`) VALUES '.
+        '(NULL, :type, :date_received, :recipient, :sender_email,'.
+        ':sender_name, :constraints_after, :constraints_before,'.
+        ':requested_date);';
+
     $stmt = $PDO->prepare($query);
     $params = array(
         'type' => $type,
