@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/"><img src="/assets/logo-small.png"></img></a>
+        <a class="navbar-brand" href="/"><img src="/assets/logo-small.png" style="height:25px;"></img></a>
     </div>
     
     <!-- Top Menu Items -->
