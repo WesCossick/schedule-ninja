@@ -133,7 +133,7 @@ function save_refresh_token($email, $refresh_token)
     $insert_token->execute($params);
 }
 
-function days_gone_by($recipient)
+function days_gone_by($email)
 {
     $requests = array();
     
