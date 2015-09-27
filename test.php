@@ -14,6 +14,6 @@ for (var $i = 0; $i < 10; $i++) {
     $constraints_before = $i % 3 == 0 ? NULL : date("Y-m-d H:i:s", $int + 60 * 60 * 24 * 7);
     $requested_date = NULL;
 
-    create_meeting_request($type, $date_received, $recipient, $sender_email, $sender_name, $constraints_after, $constraints_before, $requested_date) {
+    create_meeting_request($type, $date_received, $recipient, $sender_email, $sender_name, $constraints_after, $constraints_before, $requested_date)
 }
 ?>
