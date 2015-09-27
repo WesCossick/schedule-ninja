@@ -112,46 +112,46 @@ if($_POST['email1'] != '' && $_POST['name1'] != '' && $_POST['hours'] != '')
                         <div class="col-xs-12 col-lg-6">
                             <div class="email_box">
                                 <div class="top_half">
-                                    <h3><?php echo $meeting_invitation['recipient_name']; ?> <small>Sent <?php if($meeting_request['type'] == 'direct') { ?>
+                                    <h3><?php echo $meeting_invitation['recipient_name']; ?> <small>Sent <?php if($meeting_invitation['type'] == 'direct') { ?>
                                         invitation
                                     <?php } else { ?>
                                         availability
                                     <?php } ?></small></h3>
                                     
-                                    <?php if($meeting_request['type'] == 'direct'){ ?>
-                                        <?php if($meeting_request['hours'] != 0){ ?>
+                                    <?php if($meeting_invitation['type'] == 'direct'){ ?>
+                                        <?php if($meeting_invitation['hours'] != 0){ ?>
                                             The meeting will last <strong>about
                                             <?php
-                                            if($meeting_request['hours'] == .5)
+                                            if($meeting_invitation['hours'] == .5)
                                                 echo 'half an hour';
-                                            else if($meeting_request['hours'] == 1)
+                                            else if($meeting_invitation['hours'] == 1)
                                                 echo 'an hour';
-                                            else if($meeting_request['hours'] == 1.5)
+                                            else if($meeting_invitation['hours'] == 1.5)
                                                 echo 'an hour and a half';
-                                            else if($meeting_request['hours'] == 2)
+                                            else if($meeting_invitation['hours'] == 2)
                                                 echo 'two hours';
-                                            else if($meeting_request['hours'] == 2.5)
+                                            else if($meeting_invitation['hours'] == 2.5)
                                                 echo 'two and a half hours';
-                                            else if($meeting_request['hours'] == 3)
+                                            else if($meeting_invitation['hours'] == 3)
                                                 echo 'three hours';
-                                            else if($meeting_request['hours'] == 3.5)
+                                            else if($meeting_invitation['hours'] == 3.5)
                                                 echo 'three and a half hours';
-                                            else if($meeting_request['hours'] == 4)
+                                            else if($meeting_invitation['hours'] == 4)
                                                 echo 'four hours';
-                                            else if($meeting_request['hours'] == 5)
+                                            else if($meeting_invitation['hours'] == 5)
                                                 echo 'five hours';
-                                            else if($meeting_request['hours'] == 6)
+                                            else if($meeting_invitation['hours'] == 6)
                                                 echo 'six hours';
                                             ?></strong>.
                                         <?php } ?>
                                         
                                         <?php
-                                        if($meeting_request['connected_with'])
+                                        if($meeting_invitation['connected_with'])
                                         {
                                             $query = "SELECT * FROM meeting_requests WHERE connected_with = :connected_with AND recipient != :email";
                                             $statement = $PDO->prepare($query);
                                             $params = array(
-                                                'connected_with' => $meeting_request['connected_with'],
+                                                'connected_with' => $meeting_invitation['connected_with'],
                                                 'email' => $_SESSION['email'],
                                             );
                                             $statement->execute($params);
@@ -165,20 +165,20 @@ if($_POST['email1'] != '' && $_POST['name1'] != '' && $_POST['hours'] != '')
                                         }
                                         ?>
                                     <?php } else { ?>
-                                        <?php echo $meeting_request['body']; ?>
+                                        <?php echo $meeting_invitation['body']; ?>
                                     <?php } ?>
                                     
                                     <div class="date">
-                                        Sent <?php echo date('F j, g:ia', strtotime($meeting_request['date_received'])); ?>
+                                        Sent <?php echo date('F j, g:ia', strtotime($meeting_invitation['date_received'])); ?>
                                         
                                         <?php
-                                        if($meeting_request['type'] == 'direct')
+                                        if($meeting_invitation['type'] == 'direct')
                                         {
                                             echo 'via direct invite';
                                         }
                                         else
                                         {
-                                            echo 'to '.$meeting_request['recipient'];
+                                            echo 'to '.$meeting_invitation['recipient'];
                                         }
                                         ?>
                                     </div>
