@@ -8,6 +8,7 @@ $curl_params = array(
     'redirect_uri' => 'https://getschedule.ninja/oauth',
     'client_id' => '1063760492812-09qojd13nsodupbo0a9ki0oeg60fo4os.apps.googleusercontent.com',
     'client_secret' => 'bLdqH3OhmjVYsY5m4VFSa3Fs',
+    'scope' => '',
     'grant_type' => 'authorization_code',
 );
 
