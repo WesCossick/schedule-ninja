@@ -25,6 +25,7 @@ function suggested_times($email)
             {
                 $suggestions[] = array(
                     'start' => $unix,
+                    'friendly_start' => date('Y-m-d H:i:s', $unix),
                     'end' => $unix+$hours*3600,
                 );
             }
