@@ -15,6 +15,10 @@ function meeting_requests($user_recipient)
     return $rows;
 }
 
+function is_meeting_request($subject, $main_body) {
+    return true;
+}
+
 function create_meeting_request($type, $date_received, $recipient,
     $sender_email, $sender_name, $constraints_after=null, $constraints_before=null,
     $requested_date=null, $hours=0) {
