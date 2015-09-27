@@ -157,6 +157,7 @@ function get_all_events($email)
 
     // Get JSON and token
     $json = json_decode($response, true);
+    print_r($json);
     
     
     // Loop over calendars
