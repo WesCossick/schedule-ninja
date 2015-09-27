@@ -54,7 +54,6 @@ function get_all_events($email)
     // Get JSON and token
     $json = json_decode($response, true);
     $access_token = $json['access_token'];
-    print_r($json);
     
     
     // API call
@@ -65,8 +64,7 @@ function get_all_events($email)
     curl_setopt($ch, CURLOPT_TIMEOUT, 10);
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
     curl_setopt($ch, CURLOPT_AUTOREFERER, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: '.$access_token));
-    echo $access_token;
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$access_token));
 
     if(($response = curl_exec($ch)) === false)
     {
