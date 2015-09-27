@@ -216,6 +216,10 @@
             var subject = $(this).data("subject");
             var id = $(this).data("id");
             var $box = $(this).closest(".email_box");
+                $box.fadeTo(250, .3);
+                $box.css({
+                    "pointer-events": "none",
+                });
             
             $.ajax({
                 method: "POST",
@@ -227,10 +231,6 @@
                     id: id,
                 }
             }).done(function(msg){
-                $box.fadeTo(250, .3);
-                $box.css({
-                    "pointer-events": "none",
-                });
                 console.log(msg);
             });
         });
@@ -240,6 +240,10 @@
             var user_email = $(this).data("useremail");
             var id = $(this).data("id");
             var $box = $(this).closest(".email_box");
+                $box.fadeTo(250, .3);
+                $box.css({
+                    "pointer-events": "none",
+                });
             
             $.ajax({
                 method: "POST",
@@ -250,10 +254,6 @@
                     id: id,
                 }
             }).done(function(msg){
-                $box.fadeTo(250, .3);
-                $box.css({
-                    "pointer-events": "none",
-                });
                 
                 var data = JSON.parse(msg);
                 var html = "<ul>";
@@ -282,6 +282,11 @@
             var subject = $(this).data("subject");
             var $box = $(this).closest(".email_box");
             
+                $box.fadeTo(250, .3);
+                $box.css({
+                    "pointer-events": "none",
+                });
+            
             $.ajax({
                 method: "POST",
                 url: "/deny_email",
@@ -291,10 +296,6 @@
                     subject: subject,
                 }
             }).done(function(msg){
-                $box.fadeTo(250, .3);
-                $box.css({
-                    "pointer-events": "none",
-                });
                 console.log(msg);
             });
         });
