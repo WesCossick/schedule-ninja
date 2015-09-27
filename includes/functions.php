@@ -144,10 +144,6 @@ function days_gone_by($email)
         $current = date('Y-m-d H:i:s', strtotime(date('Y-m-d', strtotime('-'.($i-1).' days'))));
         $past = date('Y-m-d H:i:s', strtotime(date('Y-m-d', strtotime('-'.$i.' days'))));
         
-        print_r($past);
-        print_r($current);
-        print_r($email);
-        
         $current_date = date('l', strtotime('-'.$i.'days'));
         $query = 'SELECT COUNT(*) FROM meeting_requests WHERE recipient = :email AND date_received >= :past AND date_received <= :current';
         $stmt = $PDO->prepare($query);
