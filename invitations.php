@@ -31,6 +31,10 @@
         font-style:italic;
         color:#bbb;
     }
+    
+    form input{
+        margin-bottom:5px;
+    }
     </style>
 </head>
 
@@ -63,10 +67,10 @@
                                 
                                 <div class="form-group">
                                     <label for="name1">Recipient name(s)</label>
-                                    <input type="text" class="form-control" name="name1" id="name1" placeholder="user@example.com">
-                                    <input type="text" class="form-control" name="name2" id="name2" placeholder="user@example.com">
-                                    <input type="text" class="form-control" name="name3" id="name3" placeholder="user@example.com">
-                                    <input type="text" class="form-control" name="name4" id="name4" placeholder="user@example.com">
+                                    <input type="text" class="form-control" name="name1" id="name1" placeholder="John Doe">
+                                    <input type="text" class="form-control" name="name2" id="name2" placeholder="John Doe">
+                                    <input type="text" class="form-control" name="name3" id="name3" placeholder="John Doe">
+                                    <input type="text" class="form-control" name="name4" id="name4" placeholder="John Doe">
                                 </div>
                                 
                                 <button type="submit" class="btn btn-primary">Submit</button>
