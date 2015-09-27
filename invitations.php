@@ -15,9 +15,6 @@ if($_POST['email1'] != '' && $_POST['name1'] != '' && $_POST['hours'] != '')
         
     if($_POST['email3'] != '' && $_POST['name3'] != '')
         create_meeting_request('direct', date('Y-m-d H:i:s'), $_POST['email3'], $_SESSION['email'], $_SESSION['first_name'].' '.$_SESSION['last_name'], null, null, null, $_POST['hours'], '', null, null, $_POST['name3'], $connected_with);
-        
-    if($_POST['email4'] != '' && $_POST['name4'] != '')
-        create_meeting_request('direct', date('Y-m-d H:i:s'), $_POST['email4'], $_SESSION['email'], $_SESSION['first_name'].' '.$_SESSION['last_name'], null, null, null, $_POST['hours'], '', null, null, $_POST['name4'], $connected_with);
 }
 ?>
 
@@ -83,7 +80,6 @@ if($_POST['email1'] != '' && $_POST['name1'] != '' && $_POST['hours'] != '')
                                     <input type="email" class="form-control" name="email1" id="email1" placeholder="user@example.com">
                                     <input type="email" class="form-control" name="email2" id="email2" placeholder="user@example.com">
                                     <input type="email" class="form-control" name="email3" id="email3" placeholder="user@example.com">
-                                    <input type="email" class="form-control" name="email4" id="email4" placeholder="user@example.com">
                                 </div>
                                 
                                 <div class="form-group">
@@ -91,7 +87,6 @@ if($_POST['email1'] != '' && $_POST['name1'] != '' && $_POST['hours'] != '')
                                     <input type="text" class="form-control" name="name1" id="name1" placeholder="John Doe">
                                     <input type="text" class="form-control" name="name2" id="name2" placeholder="John Doe">
                                     <input type="text" class="form-control" name="name3" id="name3" placeholder="John Doe">
-                                    <input type="text" class="form-control" name="name4" id="name4" placeholder="John Doe">
                                 </div>
                                 
                                 <div class="form-group">
