@@ -34,8 +34,14 @@ function create_meeting_request($type, $date_received, $recipient,
         :sender_name, :constraints_after, :constraints_before,
         :requested_date, :hours);';
     */
-    $stmt = $PDO->query($query);
-    print_r($stmt->errorInfo());
+    try {
+        $PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $stmt = $PDO->query($query);
+    }
+    catch(Exception $e) {
+        echo 'Exception -> ';
+        var_dump($e->getMessage());
+    }
     echo 'good2';
 
     /*
