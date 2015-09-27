@@ -1,18 +1,17 @@
 <?php
-function meeting_requests()
+function meeting_requests($user_recipient)
 {
     // Do something
-    $query = "SELECT * FROM users WHERE email = :email";
+    $query = "SELECT * FROM meeting_requests WHERE user_recipient = :user_recipient";
     $statement = $PDO->prepare($query);
     $params = array(
-        'email' => 'something@example.com',
+        'user_recipient' => $user_recipient,
     );
     $statement->execute($params);
-    $row = $statement->fetch();
-    
+    $rows = $statement->fetchAll();
     
     // Return
-    return $row;
+    return $rows;
 }
 
 function count_meeting_requests()
