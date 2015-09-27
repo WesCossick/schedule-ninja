@@ -166,5 +166,4 @@ function days_gone_by($email)
     }
     return $requests;
 }
-
 ?>
