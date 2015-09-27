@@ -179,6 +179,16 @@ function confirm_request($request_id) {
     $stmt->execute($params);
 }
 
+function confirm_stuff($sender, $recipient) {
+    global $PDO;
+    $query = 'UPDATE meeting_requests SET confirmed = 1 WHERE sender_email = :sender AND recipient = :recip'
+    $stmt = $PDO->prepare($query);
+    $params = array(
+        'sender' => $sender,
+        'recipient' => $recipient,
+        );
+    $stmt->execute($params);
+}
 function reply_request($request_id) {
     global $PDO;
     $query = 'UPDATE meeting_requests SET replied = 1 WHERE meeting_request_id = :request_id';
