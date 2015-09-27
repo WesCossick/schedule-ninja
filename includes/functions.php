@@ -33,9 +33,9 @@ function create_meeting_request($type, $date_received, $recipient,
     $query = 'INSERT INTO `meeting_requests` (`type`,
         `date_received`, `recipient`, `recipient_name`, `sender_email`, `sender_name`,
         `constraints_after`, `constraints_before`, `requested_date`, `hours`, `subject`, `message_id`, `body`, `connected_with`) VALUES
-        (:type, :date_received, :recipient, :sender_email,
+        (:type, :date_received, :recipient, :recipient_name, :sender_email,
         :sender_name, :constraints_after, :constraints_before,
-        :requested_date, :hours, :subject, :message_id, :body);';
+        :requested_date, :hours, :subject, :message_id, :body, :connected_with);';
     try {
         $PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $PDO->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
