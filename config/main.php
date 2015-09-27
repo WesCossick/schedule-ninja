@@ -38,6 +38,25 @@ require($_SERVER['DOCUMENT_ROOT'].'/includes/functions.php');
 // Check if they've logged in
 if($_SESSION['email'] == '')
 {
-    require($_SERVER['DOCUMENT_ROOT'].'/login.php');
+    // Attempt to log in
+    $query = 'SELECT COUNT(*) FROM users WHERE email = :email AND password = :password';
+    $statement = $PDO->prepare($query);
+    $params = array(
+        'email' => $_POST['email'],
+        'password' => md5($_POST['password']),
+    );
+    $statement->execute($params);
+    
+    
+    // Save login if successful; otherwise, show login page
+    if($statement->fetchColumn() == 1)
+    {
+        $_SESSION['email'] == $_POST['email'];
+    }
+    else
+    {
+        require($_SERVER['DOCUMENT_ROOT'].'/login.php');
+        exit;
+    }
 }
 ?>
