@@ -113,8 +113,8 @@ function get_all_events($email)
         foreach($json2['items'] as $item2)
         {
             $events[] = array(
-                'start' => strtotime($item2['dateTime']),
-                'end' => strtotime($item2['dateTime']),
+                'start' => strtotime($item2['start']['dateTime']),
+                'end' => strtotime($item2['end']['dateTime']),
             );
         }
     }
