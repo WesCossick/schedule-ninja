@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>SB Admin - Bootstrap Admin Template</title>
+    <title>Dashboard - Schedule Ninja</title>
     <?php require($_SERVER['DOCUMENT_ROOT'].'/includes/head.php'); ?>
 </head>
 
@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Login <small>Welcome!</small>
+                            Log in <small>Welcome!</small>
                         </h1>
                     </div>
                 </div>

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>SB Admin - Bootstrap Admin Template</title>
+    <title>Dashboard - Schedule Ninja</title>
     <?php require($_SERVER['DOCUMENT_ROOT'].'/includes/head.php'); ?>
 </head>
 
