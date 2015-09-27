@@ -174,7 +174,7 @@ function confirm_request($request_id) {
     $query = 'UPDATE meeting_requests SET confirmed = 1 WHERE meeting_request_id = :request_id';
     $stmt = $PDO->prepare($query);
     $params = array(
-            'request_id' => $request_id,
+            'request_id' => intval($request_id),
         );
     $stmt->execute($params);
 }
@@ -184,7 +184,7 @@ function reply_request($request_id) {
     $query = 'UPDATE meeting_requests SET replied = 1 WHERE meeting_request_id = :request_id';
     $stmt = $PDO->prepare($query);
     $params = array(
-            'request_id' => $request_id,
+            'request_id' => intval($request_id),
         );
     $stmt->execute($params);
 }
