@@ -17,7 +17,7 @@ foreach ($r->getData() as $message) {
     $msg_id = $message['message_id'];
     $subject = $message['subject'];
     $extensive_msg = $contextIO->getMessage($accountId,
-        array('message_id': $msg_id, 'include_body': true));
+        array('message_id' => $msg_id, 'include_body' => true));
     var_dump($extensive_msg);
 }
 
