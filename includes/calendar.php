@@ -12,6 +12,7 @@ function get_all_events($email)
     
     
     // Get refresh token
+    echo 'email: '.$email;
     $query = "SELECT refresh_token FROM users WHERE email = :email";
     $statement = $PDO->prepare($query);
     $params = array(
