@@ -106,7 +106,7 @@
                                                 $names[] = $row['recipient_name'];
                                             }
                                             
-                                            echo '<strong>You, '.implode(', ', $names).'</strong> have all been invited.';
+                                            echo '<strong>'.implode(', ', $names).' and you</strong> have all been invited.';
                                         }
                                         ?>
                                     <?php } else { ?>
