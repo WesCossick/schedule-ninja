@@ -111,10 +111,10 @@
         Morris.Area({
             element: 'morris-area-chart',
             data: [
-                <?php for($i = 7; $i >=0; $i--){ ?>
+                <?php foreach (days_gone_by($_SESSION['email']) as $day) { ?>
                     {
-                        period: "<?php echo date('l', strtotime('-'.$i.' days')); ?>",
-                        requests: <?php echo rand(0, 100); ?>,
+                        period: "<?php echo $day['period']; ?>",
+                        requests: <?php echo $day['requests']; ?>,
                     },
                 <?php } ?>
             ],

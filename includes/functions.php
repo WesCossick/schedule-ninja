@@ -132,4 +132,16 @@ function save_refresh_token($email, $refresh_token)
     $insert_token->execute($params);
 }
 
+function days_gone_by($recipient)
+{
+    $requests = array();
+    
+    for($i = 7; $i >=0; $i--)
+    {
+        $requests[] = array('period' => date('l', strtotime('-'.$i.'days')),
+        'requests' => rand(0, 100));
+    }
+    return $requests;
+}
+
 ?>
