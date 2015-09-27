@@ -57,22 +57,11 @@ function get_all_events($email)
     print_r($json);
     
     
-    // Setup params
-    $curl_params = array(
-        'grant_type' => 'refresh_token',
-        'client_secret' => 'bLdqH3OhmjVYsY5m4VFSa3Fs',
-        'refresh_token' => $refresh_token,
-        'client_id' => '1063760492812-09qojd13nsodupbo0a9ki0oeg60fo4os.apps.googleusercontent.com',
-    );
-
-
     // API call
     $ch = curl_init();
 
     curl_setopt($ch, CURLOPT_URL, 'https://www.googleapis.com/calendar/v3/users/me/calendarList');
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($curl_params));
     curl_setopt($ch, CURLOPT_TIMEOUT, 10);
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
     curl_setopt($ch, CURLOPT_AUTOREFERER, true);
