@@ -260,8 +260,8 @@
                     var end = moment.unix(data[i].end);
                     html += "<li>";
                     html += start.format("ddd, hA");
-                    html += " ";
-                    html += end.format("ddd, hA");
+                    html += " - ";
+                    html += end.format("hA");
                     html += "</li>";
                     html += "<br>";
                 }
