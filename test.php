@@ -10,7 +10,7 @@ for ($i = 0; $i < 10; $i++) {
     $sender_name = '';
     $characters = 'abcdefghijklmnopqrstuvwxyz';
     $charactersLength = strlen($characters);
-    for ($i = 0; $i < 9; $i++) {
+    for ($j = 0; $j < 9; $j++) {
         $sender_name .= $characters[rand(0, $charactersLength - 1)];
     }
                             }
