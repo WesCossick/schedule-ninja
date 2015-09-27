@@ -258,7 +258,7 @@
                 {
                     var start = moment.unix(data[i].start);
                     var end = moment.unix(data[i].end);
-                    html += "<li>";
+                    html += "<li style='margin:0; padding:0;'>";
                     html += start.format("ddd, ha");
                     html += " - ";
                     html += end.format("ha");
